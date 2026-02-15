@@ -116,7 +116,7 @@ const Header = () => {
               {activeTab === link.name && (
                 <motion.span
                   layoutId="nav-active-dot"
-                  className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"
+                  className="absolute inset-0   size-full bg-primary/70 rounded-full"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
