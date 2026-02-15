@@ -1,15 +1,66 @@
+/* 1. Import all requested Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo+Black&family=Barlow:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Caveat+Brush&family=Concert+One&family=Fredericka+the+Great&family=Inter:wght@100..900&family=Lato:ital,wght@0,100..900;1,100..900&family=Lilita+One&family=Lobster&family=Orbitron:wght@400..900&family=Pacifico&family=Rubik+Mono+One&family=Sacramento&display=swap');
+
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* --- BRAND COLORS --- */
+  --primary: #004643;    /* Deep Teal */
+  --secondary: #f0ede5;  /* Off-White / Cream */
+  --tertiary: #74b4d9;   
+
+  /* --- FONT FAMILIES --- */
+  --font-amatic: "Amatic SC", cursive;
+  --font-archivo: "Archivo Black", sans-serif;
+  --font-barlow: "Barlow", sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-caveat: "Caveat Brush", cursive;
+  --font-concert: "Concert One", cursive;
+  --font-fredericka: "Fredericka the Great", cursive;
+  --font-inter: "Inter", sans-serif;
+  --font-lato: "Lato", sans-serif;
+  --font-lilita: "Lilita One", cursive;
+  --font-lobster: "Lobster", cursive;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-pacifico: "Pacifico", cursive;
+  --font-rubik: "Rubik Mono One", monospace;
+  --font-sacramento: "Sacramento", cursive;
+  --font-tiktok: "TikTok Sans", sans-serif; /* Fallback if you have it locally */
 }
 
 @theme inline {
+  /* --- COLOR MAPPING --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+
+  /* --- FONT MAPPING --- */
+  /* Usage: class="font-amatic", class="font-orbitron", etc. */
+  
+  --font-amatic: var(--font-amatic);
+  --font-archivo: var(--font-archivo);
+  --font-barlow: var(--font-barlow);
+  --font-bebas: var(--font-bebas);
+  --font-caveat: var(--font-caveat);
+  --font-concert: var(--font-concert);
+  --font-fredericka: var(--font-fredericka);
+  --font-inter: var(--font-inter);
+  --font-lato: var(--font-lato);
+  --font-lilita: var(--font-lilita);
+  --font-lobster: var(--font-lobster);
+  --font-orbitron: var(--font-orbitron);
+  --font-pacifico: var(--font-pacifico);
+  --font-rubik: var(--font-rubik);
+  --font-sacramento: var(--font-sacramento);
+  --font-tiktok: var(--font-tiktok);
+  
+  /* Defaults */
+  --font-sans: var(--font-inter); 
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +70,3 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
