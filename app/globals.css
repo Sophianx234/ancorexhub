@@ -3,18 +3,20 @@
 
 @import "tailwindcss";
 
+/* 2. Define Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- LIGHT MODE DEFAULTS --- */
+  --background: #f0ede5;       /* Cream Background */
+  --foreground: #001514;       /* Deep Teal Text */
+  
+  --primary: #004643;          /* Original Teal */
+  --primary-deep: #001514;     /* Darker Teal */
+  --primary-deep-light: #ffffff; /* Card Background (White in Light Mode) */
+  
+  --secondary: #f0ede5;        /* Cream */
+  --tertiary: #74b4d9;         /* Blue */
 
-  /* --- BRAND COLORS --- */
-  --primary: #004643;    /* Deep Teal */
-  --primary-deep: #001514;    /* Deep Teal */
-  --primary-deep-light: #002322;    /* Deep Teal */
-  --secondary: #f0ede5;  /* Off-White / Cream */
-  --tertiary: #74b4d9;   
-
-  /* --- FONT FAMILIES --- */
+  /* --- FONT DEFINITIONS --- */
   --font-amatic: "Amatic SC", cursive;
   --font-archivo: "Archivo Black", sans-serif;
   --font-barlow: "Barlow", sans-serif;
@@ -30,22 +32,38 @@
   --font-pacifico: "Pacifico", cursive;
   --font-rubik: "Rubik Mono One", monospace;
   --font-sacramento: "Sacramento", cursive;
-  --font-tiktok: "TikTok Sans", sans-serif; /* Fallback if you have it locally */
+  --font-tiktok: "TikTok Sans", sans-serif;
 }
 
-@theme inline {
-  /* --- COLOR MAPPING --- */
+/* --- DARK MODE OVERRIDES --- */
+/* When the class "dark" is added to the <html> tag, these values swap */
+.dark {
+  --background: #001514;       /* Deep Teal Background */
+  --foreground: #f0ede5;       /* Cream Text */
+  
+  /* We brighten the primary slightly so it pops on dark backgrounds */
+  --primary: #2D8A86;          
+  
+  --primary-deep: #000a09;     /* Even Darker Teal for contrast */
+  --primary-deep-light: #002322; /* Card Background (Deep Light Teal in Dark Mode) */
+  
+  --secondary: #001514;        /* Secondary becomes dark */
+}
+
+/* 3. Map Variables to Tailwind Utilities */
+@theme {
+  /* --- COLORS --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  
   --color-primary: var(--primary);
   --color-primary-deep: var(--primary-deep);
   --color-primary-deep-light: var(--primary-deep-light);
+  
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
 
-  /* --- FONT MAPPING --- */
-  /* Usage: class="font-amatic", class="font-orbitron", etc. */
-  
+  /* --- FONTS --- */
   --font-amatic: var(--font-amatic);
   --font-archivo: var(--font-archivo);
   --font-barlow: var(--font-barlow);
@@ -63,14 +81,22 @@
   --font-sacramento: var(--font-sacramento);
   --font-tiktok: var(--font-tiktok);
   
-  /* Defaults */
-  --font-sans: var(--font-inter); 
+  /* Set Default Sans Font */
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Smooth Transition Global Reset */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body {
+  @apply bg-background text-foreground;
+}
+
+/* Smooth transition for all major elements */
+div, section, p, h1, h2, h3, h4, h5, h6, span, button, input, textarea {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
