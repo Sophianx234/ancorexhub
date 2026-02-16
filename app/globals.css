@@ -9,6 +9,7 @@
 
   /* --- BRAND COLORS --- */
   --primary: #004643;    /* Deep Teal */
+  --primary-deep: #001514;    /* Deep Teal */
   --secondary: #f0ede5;  /* Off-White / Cream */
   --tertiary: #74b4d9;   
 
@@ -36,6 +37,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-primary-deep: var(--primary-deep);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
 
