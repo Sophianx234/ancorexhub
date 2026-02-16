@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from "react";
 import { Menu, X, Sun, Moon, ArrowRight, Search } from "lucide-react";
 import Image from "next/image";
