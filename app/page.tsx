@@ -9,6 +9,7 @@ import {
   Briefcase,
   Calendar,
   CheckCircle2,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   ClipboardList,
@@ -40,6 +41,7 @@ import {
   User,
   Users,
   VectorSquare,
+  Youtube,
 } from "lucide-react";
 import Header from "./header";
 import Image from "next/image";
@@ -687,149 +689,306 @@ const Portfolio = () => (
 
 // --- NEW SECTIONS START HERE ---
 
-const Testimonials = () => (
-  <section className="py-24 bg-[#0B0F19] text-white overflow-hidden relative">
-    {/* Background Watermark */}
-    <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[120px] font-bold text-white/5 whitespace-nowrap select-none">
-      TESTIMONIALS
+
+// 1. DUMMY DATA (Expanded to make the loop look full)
+const testimonials = [
+  {
+    name: "Jenny Wilson",
+    role: "Owner, Furniture Store",
+    title: "A Wonderful Experience!",
+    quote:
+      "The level of detail and care they put into their work is unmatched. I've never felt more confident in a partnership.",
+    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Bessie Cooper",
+    role: "CEO, Car Rental App",
+    title: "Highly Recommended!",
+    quote:
+      "We saw a 200% increase in user retention within the first month. The ROI on this service is absolutely insane.",
+    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Robert Fox",
+    role: "CTO, TechStart",
+    title: "World Class Support",
+    quote:
+      "It's rare to find a team that understands the tech stack as well as they do. Truly a seamless integration.",
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Cameron Williamson",
+    role: "Marketing Head, Growth.io",
+    title: "Game Changer",
+    quote:
+      "Our workflow has never been smoother. The automation features alone saved us 20 hours a week.",
+    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80",
+  },
+];
+
+const TestimonialCard = ({ item }) => (
+  <div className="w-[400px] flex-shrink-0 bg-primary-deep-light p-8 rounded-3xl border border-white/5   transition-all duration-300 group select-none">
+    <div className="flex gap-1 mb-6 text-yellow-400">
+      {[...Array(5)].map((_, i) => (
+        <Star key={i} size={16} fill="currentColor" />
+      ))}
+      <span className="text-white ml-2 font-bold text-sm">5.0</span>
     </div>
-
-    <div className="max-w-7xl mx-auto px-6 relative z-10">
-      <div className="text-center mb-16">
-        <div className="flex justify-center">
-          <SectionTag text="Testimonials" dark />
-        </div>
-        <h2 className="text-4xl font-bold">
-          Testimonials: <span className="text-blue-500">Trusted</span> <br /> by
-          Our Clients
-        </h2>
+    <h3 className="text-lg font-bold mb-3 text-white">{item.title}</h3>
+    <p className="text-slate-400 mb-6 leading-relaxed italic text-sm line-clamp-3">
+      "{item.quote}"
+    </p>
+    <div className="flex items-center gap-4">
+      <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50">
+        <img
+          src={item.img}
+          alt={item.name}
+          className="w-full h-full object-cover"
+        />
       </div>
-
-      <div className="grid md:grid-cols-2 gap-8">
-        {[
-          {
-            name: "Jenny Wilson",
-            role: "Owner, Furniture Store",
-            title: "A Wonderful Experience!",
-            quote:
-              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
-            img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
-          },
-          {
-            name: "Bessie Cooper",
-            role: "CEO, Car Rental App",
-            title: "Highly Recommended!",
-            quote:
-              "Aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80",
-          },
-        ].map((item, i) => (
-          <div
-            key={i}
-            className="bg-[#151B2B] p-10 rounded-3xl border border-white/5 hover:border-blue-500/30 transition duration-300"
-          >
-            <div className="flex gap-1 mb-6 text-yellow-400">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={18} fill="currentColor" />
-              ))}
-              <span className="text-white ml-2 font-bold text-sm">5.0</span>
-            </div>
-            <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-            <p className="text-slate-400 mb-8 leading-relaxed italic">
-              "{item.quote}"
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-blue-500">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <div className="font-bold">{item.name}</div>
-                <div className="text-xs text-slate-500">{item.role}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Pagination Dots */}
-      <div className="flex justify-center gap-2 mt-12">
-        <div className="w-8 h-1 bg-blue-500 rounded-full"></div>
-        <div className="w-2 h-1 bg-slate-700 rounded-full"></div>
-        <div className="w-2 h-1 bg-slate-700 rounded-full"></div>
+      <div>
+        <div className="font-bold text-sm text-white">{item.name}</div>
+        <div className="text-xs text-slate-500">{item.role}</div>
       </div>
     </div>
-  </section>
+  </div>
 );
 
-const Team = () => (
-  <section className="py-24 bg-white">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="flex justify-between items-end mb-12">
-        <div>
-          <SectionTag text="Our Team" />
-          <h2 className="text-4xl font-bold text-slate-900">
-            Meet Our <span className="text-primary">Expert Team</span>
+const Testimonials = () => {
+  return (
+    <section className="py-24 bg-primary-deep text-white overflow-hidden relative">
+      {/* Background Watermark */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[120px] font-bold text-white/[0.02] whitespace-nowrap select-none pointer-events-none">
+        TESTIMONIALS
+      </div>
+
+      <div className="relative z-10">
+        {/* Header Section */}
+        <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
+          <div className="flex justify-center mb-6">
+            <span className="bg-blue-500/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold border border-blue-500/20">
+              Testimonials
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Testimonials: <span className="text-primary">Trusted <br />{" "}
+            by Our Clients</span> 
           </h2>
         </div>
-        <button className="bg-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition">
-          View All
-        </button>
+
+        {/* Infinite Marquee Container 
+            We render the list TWICE to create the perfect seamless loop.
+        */}
+        <div className="relative w-full overflow-hidden">
+          
+          {/* Gradient Masks (The "Expensive" Look) */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0B0F19] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0B0F19] to-transparent z-20 pointer-events-none" />
+
+          {/* The Scrolling Wrapper */}
+          <div className="flex w-max gap-8 animate-marquee hover:[animation-play-state:paused]">
+            {/* First Set */}
+            {testimonials.map((item, i) => (
+              <TestimonialCard key={`a-${i}`} item={item} />
+            ))}
+            {/* Second Set (Duplicate for Loop) */}
+            {testimonials.map((item, i) => (
+              <TestimonialCard key={`b-${i}`} item={item} />
+            ))}
+             {/* Third Set (Optional: Extra buffer for ultra-wide screens) */}
+             {testimonials.map((item, i) => (
+              <TestimonialCard key={`c-${i}`} item={item} />
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {[
-          {
-            name: "Jenny Alexander",
-            role: "Chief Executive Officer",
-            img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80",
-          },
-          {
-            name: "Olivia Hughes",
-            role: "Chief Technology Officer",
-            img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80",
-          },
-          {
-            name: "Sophia Lewis",
-            role: "IT Project Manager",
-            img: "https://images.unsplash.com/photo-1598550874175-4d7112ee7f1e?auto=format&fit=crop&q=80",
-          },
-        ].map((member, i) => (
-          <div key={i} className="group">
-            <div className="relative overflow-hidden rounded-3xl mb-4 bg-slate-100 h-[400px]">
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
+      {/* Tailwind Config Requirement: 
+          Add this to your tailwind.config.js or style tag below 
+      */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.33%); } /* Moves 1/3 because we have 3 sets */
+        }
+        .animate-marquee {
+          animation: marquee 50s linear infinite;
+        }
+      `}</style>
+    </section>
+  );
+};
 
-              {/* Overlay Social Icons */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-3">
-                <div className="p-3 bg-white rounded-full hover:bg-primary hover:text-white cursor-pointer transition">
-                  <Facebook size={18} />
+
+
+
+
+
+
+const teamMembers = [
+  {
+    name: "Daniel Marcus",
+    role: "Lead Dev",
+    img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Sophia Lewis",
+    role: "Product",
+    img: "https://images.unsplash.com/photo-1598550874175-4d7112ee7f1e?auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Jenny Alexander",
+    role: "CEO & Founder",
+    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80",
+  },
+  {
+    name: "David Chen",
+    role: "Creative",
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Olivia Hughes",
+    role: "CTO",
+    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80",
+  },
+];
+
+const getMod = (n, m) => ((n % m) + m) % m;
+
+const Team = () => {
+  const [activeIndex, setActiveIndex] = useState(2);
+  const visibleRange = [-3, -2, -1, 0, 1, 2, 3];
+
+  // Calculate the current active team member (0 to 4) for indicators
+  const currentMod = getMod(activeIndex, teamMembers.length);
+
+  // Helper for clicking indicators to find shortest infinite path
+  const handleDotClick = (targetIdx) => {
+    let diff = targetIdx - currentMod;
+    if (diff > teamMembers.length / 2) diff -= teamMembers.length;
+    if (diff < -teamMembers.length / 2) diff += teamMembers.length;
+    setActiveIndex(activeIndex + diff);
+  };
+
+  return (
+    <section className="py-24 bg-[#FFF8F0] min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      
+      {/* Header Section */}
+      <div className="text-center mb-16 relative z-20 px-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          Meet the <span className="text-primary">Creators</span>
+        </h2>
+        <p className="text-slate-500">The minds shaping the future of digital.</p>
+      </div>
+
+      {/* INFINITE VIRTUAL SLIDER */}
+      <div className="relative w-full max-w-[1200px] h-[600px] flex justify-center items-center">
+        {visibleRange.map((offset) => {
+          const trueIndex = activeIndex + offset;
+          const memberIndex = getMod(trueIndex, teamMembers.length);
+          const member = teamMembers[memberIndex];
+          const isActive = offset === 0;
+          const translateX = offset * 320; 
+          const scale = isActive ? 1 : 0.85;
+          const opacity = isActive ? 1 : 1;
+          const blur = isActive ? 0 : 2;
+          const zIndex = 50 - Math.abs(offset);
+          const isVisible = Math.abs(offset) < 3; 
+
+          return (
+            <div
+              key={trueIndex} 
+              onClick={() => setActiveIndex(trueIndex)}
+              className={`absolute top-1/2 left-1/2 cursor-pointer transition-all duration-700 cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                ${isActive ? 'cursor-default' : 'hover:opacity-80'}
+              `}
+              style={{
+                transform: `translate(calc(-50% + ${translateX}px), -50%) scale(${scale})`,
+                zIndex: zIndex,
+                opacity: isVisible ? opacity : 0,
+                filter: `blur(${blur}px) grayscale(${isActive ? 0 : 0}%)`,
+                pointerEvents: isVisible ? 'auto' : 'none',
+              }}
+            >
+              <div className="w-[280px] h-[550px] bg-black rounded-[55px] border-[8px] border-black shadow-2xl overflow-hidden relative ring-4 ring-black/10 select-none">
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-8 bg-black rounded-full z-30 flex items-center justify-center gap-2">
+                   <div className="w-2 h-2 rounded-full bg-[#1a1a1a]" />
+                   <div className="w-1.5 h-1.5 rounded-full bg-[#0f0f0f]" />
                 </div>
-                <div className="p-3 bg-white rounded-full hover:bg-primary hover:text-white cursor-pointer transition">
-                  <Twitter size={18} />
-                </div>
-                <div className="p-3 bg-white rounded-full hover:bg-primary hover:text-white cursor-pointer transition">
-                  <Linkedin size={18} />
-                </div>
-                <div className="p-3 bg-white rounded-full hover:bg-primary hover:text-white cursor-pointer transition">
-                  <Instagram size={18} />
+
+                <div className="absolute top-24 -left-[10px] w-[3px] h-8 bg-gray-800 rounded-l-md" /> 
+                <div className="absolute top-36 -left-[10px] w-[3px] h-14 bg-gray-800 rounded-l-md" /> 
+                <div className="absolute top-40 -right-[10px] w-[3px] h-20 bg-gray-800 rounded-r-md" /> 
+
+                <div className="w-full h-full bg-white relative">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-80'}`} />
+                  <div className={`absolute bottom-0 left-0 right-0 p-6 text-center text-white transition-all duration-500 transform ${isActive ? 'translate-y-0' : 'translate-y-4'}`}>
+                    <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
+                    <p className="text-white/70 text-sm font-medium uppercase tracking-widest mb-6">{member.role}</p>
+                    <div className={`flex justify-center gap-3 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+                      <button className="p-2 bg-white/20 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-colors">
+                        <Linkedin size={16} />
+                      </button>
+                      <button className="p-2 bg-white/20 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-colors">
+                        <Twitter size={16} />
+                      </button>
+                      <button className="p-2 bg-white/20 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-colors">
+                        <Mail size={16} />
+                      </button>
+                    </div>
+                  </div>
+                  {!isActive && (
+                    <div className="absolute inset-0 flex items-center justify-center z-40">
+                       <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
+                          <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                       </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-            <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
-            <p className="text-sm text-primary font-medium">{member.role}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
-    </div>
-  </section>
-);
+      
+      {/* STYLISH INDICATORS 
+          Shows the current count and interactive dots 
+      */}
+      <div className="mt-12 flex flex-col items-center gap-4 relative z-20">
+       {/*  <div className="text-slate-400 font-mono text-xs tracking-widest uppercase">
+          Member <span className="text-slate-900 font-bold">{currentMod + 1}</span> / {teamMembers.length}
+        </div>
+        */} 
+        <div className="flex items-center gap-3">
+          {teamMembers.map((_, dotIdx) => (
+            <button
+              key={dotIdx}
+              onClick={() => handleDotClick(dotIdx)}
+              className={`h-2 transition-all duration-500 rounded-full ${
+                currentMod === dotIdx 
+                ? "w-8 bg-primary shadow-[0_0_10px_rgba(37,99,235,0.4)]" 
+                : "w-2 bg-slate-300 hover:bg-slate-400"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-8 text-slate-400 text-sm md:hidden animate-pulse">
+        Tap a card to bring it to center
+      </div>
+    </section>
+  );
+};
+
+
+
+
 
 const StatsBanner = () => (
   <section
@@ -895,7 +1054,7 @@ const Blog = () => (
       ].map((post, i) => (
         <div
           key={i}
-          className="group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl transition duration-300"
+          className="group bg-white rounded-3xl overflow-hidden border-primary/10 border   transition duration-300"
         >
           <div className="h-60 overflow-hidden relative">
             <img
@@ -1035,7 +1194,7 @@ const Awards = () => {
   };
 
   return (
-    <section className="py-24 bg-[#F8FAFC] overflow-hidden">
+    <section className="py-24 bg-secondary/30 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
@@ -1090,7 +1249,7 @@ const Awards = () => {
                     variants={cardVariants}
                     custom={direction}
                     className={`
-                      bg-white rounded-[2rem] border-2 border-primary/10 p-6 text-center relative overflow-hidden group
+                      bg-white rounded-[2rem] border-2 border-primary/5 p-6 text-center relative overflow-hidden group
                       flex flex-col h-[400px] justify-between
                       
                       transition-shadow duration-300
@@ -1137,99 +1296,129 @@ const Awards = () => {
 
 
 
+
 const Contact = () => (
-  <section className="py-24 px-6 max-w-7xl mx-auto">
-    <div className="flex flex-col lg:flex-row gap-8">
-      <div className="lg:w-1/3 bg-[#0B0F19] rounded-3xl p-10 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
-        <h3 className="text-2xl font-bold mb-10 relative z-10">Contact Info</h3>
-        <div className="space-y-8 relative z-10">
-          <div className="flex gap-4 items-start">
-            <div className="p-3 bg-white/10 rounded-xl">
-              <MapPin className="text-blue-500" />
-            </div>
-            <div>
-              <p className="text-sm text-slate-400 mb-1">Address</p>
-              <p className="font-medium">
-                2464 Royal Ln. Mesa,
-                <br />
-                New Jersey 45463
-              </p>
-            </div>
+  <section className="py-24 px-6 bg-[#F8F9FB]">
+    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row shadow-sm rounded-[40px] overflow-hidden bg-white">
+      
+      {/* Left Column: Info Card */}
+      <div className="lg:w-[35%] bg-primary-deep p-12 text-white relative overflow-hidden flex flex-col justify-between">
+        {/* Topographical Wavy Background Pattern */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none select-none">
+          <svg width="100%" height="100%" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 100 Q 100 150 200 100 T 400 100" fill="none" stroke="white" strokeWidth="2" />
+            <path d="M0 200 Q 100 250 200 200 T 400 200" fill="none" stroke="white" strokeWidth="2" />
+            <path d="M0 300 Q 100 350 200 300 T 400 300" fill="none" stroke="white" strokeWidth="2" />
+            <path d="M0 400 Q 100 450 200 400 T 400 400" fill="none" stroke="white" strokeWidth="2" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 space-y-12">
+          {/* Address */}
+          <div>
+            <h4 className="text-xl font-semibold mb-4 text-white/90">Address</h4>
+            <p className="text-slate-400 leading-relaxed">
+              2464 Royal Ln. Mesa,<br />
+              New Jersey 45463
+            </p>
           </div>
-          <div className="flex gap-4 items-start">
-            <div className="p-3 bg-white/10 rounded-xl">
-              <Phone className="text-blue-500" />
-            </div>
-            <div>
-              <p className="text-sm text-slate-400 mb-1">Phone</p>
-              <p className="font-medium">+012 345 6789</p>
-            </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-xl font-semibold mb-4 text-white/90">Contact</h4>
+            <p className="text-slate-400">Phone : +(000) 000-0000</p>
+            <p className="text-slate-400">Email : example@gmail.com</p>
           </div>
-          <div className="flex gap-4 items-start">
-            <div className="p-3 bg-white/10 rounded-xl">
-              <Mail className="text-blue-500" />
-            </div>
-            <div>
-              <p className="text-sm text-slate-400 mb-1">Email</p>
-              <p className="font-medium">example@gmail.com</p>
-            </div>
+
+          {/* Open Time */}
+          <div>
+            <h4 className="text-xl font-semibold mb-4 text-white/90">Open Time</h4>
+            <p className="text-slate-400">Monday - Friday : 10:00 - 20:00</p>
+          </div>
+        </div>
+
+        {/* Social Connectivity */}
+        <div className="relative z-10 pt-12">
+          <h4 className="text-xl font-semibold mb-6 text-white/90">Stay Connected</h4>
+          <div className="flex gap-4">
+            {[Facebook, Twitter, Linkedin, Instagram, Youtube].map((Icon, i) => (
+              <div key={i} className="w-10 h-10 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:bg-white hover:text-blue-600 transition-all duration-300">
+                <Icon size={18} fill="currentColor" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className="lg:w-2/3 bg-white rounded-3xl p-10 border border-slate-100 shadow-xl">
-        <div className="mb-8">
-          <SectionTag text="Contact Us" />
-          <h2 className="text-3xl font-bold text-slate-900">
+
+      {/* Right Column: Form */}
+      <div className="lg:w-[65%] p-12 md:p-16">
+        <div className="mb-10">
+          <div className="flex items-center gap-2 text-primary font-bold mb-4">
+            <span className="text-lg italic">//</span>
+            <span className="uppercase tracking-widest text-sm">Contact Us</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
             Get Your <span className="text-primary">Free Quote</span> Today!
           </h2>
         </div>
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-slate-700">
-              Your Name *
-            </label>
-            <input
-              type="text"
-              placeholder="John Doe"
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition"
+
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+          {/* Name */}
+          <div className="space-y-3">
+            <label className="block text-slate-800 font-bold">Your Name *</label>
+            <input 
+              type="text" 
+              placeholder="Ex. John Doe"
+              className="w-full bg-[#F3F6F9] rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:primary/20 transition-all placeholder:text-slate-400"
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-slate-700">Email *</label>
-            <input
-              type="email"
-              placeholder="email@example.com"
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition"
+
+          {/* Email */}
+          <div className="space-y-3">
+            <label className="block text-slate-800 font-bold">Email *</label>
+            <input 
+              type="email" 
+              placeholder="example@gmail.com"
+              className="w-full bg-[#F3F6F9] rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all placeholder:text-slate-400"
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-slate-700">Phone *</label>
-            <input
-              type="tel"
-              placeholder="(123) 456-789"
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition"
+
+          {/* Phone */}
+          <div className="space-y-3">
+            <label className="block text-slate-800 font-bold">Phone *</label>
+            <input 
+              type="tel" 
+              placeholder="Enter Phone Number"
+              className="w-full bg-[#F3F6F9] rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all placeholder:text-slate-400"
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-slate-700">
-              Service Type
-            </label>
-            <select className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition text-slate-600">
-              <option>Web Development</option>
-              <option>UI/UX Design</option>
-            </select>
+
+          {/* Service */}
+          <div className="space-y-3">
+            <label className="block text-slate-800 font-bold">Service *</label>
+            <div className="relative">
+              <select className="w-full bg-[#F3F6F9] rounded-2xl px-6 py-4 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-slate-500">
+                <option>Select Services</option>
+                <option>Web Development</option>
+                <option>App Design</option>
+              </select>
+              <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={20} />
+            </div>
           </div>
-          <div className="col-span-1 md:col-span-2 space-y-2">
-            <label className="text-sm font-bold text-slate-700">Message</label>
-            <textarea
+
+          {/* Message */}
+          <div className="col-span-1 md:col-span-2 space-y-3">
+            <label className="block text-slate-800 font-bold">Your Message *</label>
+            <textarea 
               rows={4}
-              placeholder="Type your message..."
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition"
+              placeholder="Enter here.."
+              className="w-full bg-[#F3F6F9] rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all placeholder:text-slate-400 resize-none"
             ></textarea>
           </div>
-          <div className="col-span-1 md:col-span-2">
-            <button className="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg w-full md:w-auto hover:bg-blue-700 transition">
+
+          {/* Submit Button */}
+          <div className="pt-4">
+            <button className="bg-primary text-white px-10 py-4 rounded-full font-bold shadow-[0_10px_20px_rgba(37,99,235,0.3)] hover:bg-primary/80 hover:shadow-none transition-all duration-300">
               Send Message
             </button>
           </div>
@@ -1238,6 +1427,7 @@ const Contact = () => (
     </div>
   </section>
 );
+
 
 const Newsletter = () => (
   <section className="py-20 bg-white">
@@ -1389,12 +1579,12 @@ export default function LandingPage() {
         <WhyChooseUs />
         <MarqueeStrip />
         <Portfolio />
+        <Awards />
         <Testimonials />
         <MarqueeStrip />
         <Team />
         <StatsBanner />
         <Blog />
-        <Awards />
         <Contact />
         <Newsletter />
         <Footer />

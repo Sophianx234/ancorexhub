@@ -39,7 +39,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="fixed font-barlow top-0 left-0 right-0 z-50 flex justify-center pt-0 pointer-events-none">
+    <div className="fixed font-barlow z-50 top-0 left-0 right-0  flex justify-center pt-0 pointer-events-none">
       <motion.header
         initial="initial"
         animate={isScrolled ? "scrolled" : "initial"}
