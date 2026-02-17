@@ -5,7 +5,7 @@ import { ArrowRight, Facebook, Instagram, Linkedin, Twitter } from "lucide-react
 const Footer = () => (
   <footer className="bg-primary-deep text-white">
     {/* CTA Bar */}
-    <div className="bg-primary-deep border-b border-primary-deep-light py-10">
+    <div className="bg-primary-deep border-b border-primary py-10">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <h2 className="text-2xl font-bold flex items-center gap-2">
           Let's <span className="text-primary">Connect</span> there
