@@ -10,16 +10,16 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import useDarkMode from "@/lib/useDarkmode";
-// Ensure this path matches where you saved the hook
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // INTEGRATION: Use the custom hook instead of local boolean state
   const [colorTheme, setTheme] = useDarkMode();
-  // If the next theme option is 'light', it means we are currently in 'dark'
-  const isDarkMode = colorTheme === "light"; 
+  
+  // --- FIX IS HERE ---
+  // We check if the current theme is "dark". 
+  const isDarkMode = colorTheme === "dark"; 
 
   const [activeTab, setActiveTab] = useState("Home");
   const [hoveredTab, setHoveredTab] = useState(null);
@@ -64,7 +64,7 @@ const Header = () => {
       borderRadius: 9999,
       // Light: 85% White | Dark: 85% Deep Black
       backgroundColor: isDarkMode ? "rgba(10, 10, 10, 0.85)" : "rgba(255, 255, 255, 0.85)",
-      borderBottom: "1px solid rgba(255,255,255,0.2)", // Kept consistent or adjust if needed
+      borderBottom: "1px solid rgba(255,255,255,0.2)",
       boxShadow: isDarkMode 
         ? "0 8px 32px rgba(0, 0, 0, 0.5)" 
         : "0 8px 32px rgba(0, 0, 0, 0.08)",
@@ -78,32 +78,30 @@ const Header = () => {
       <motion.header
         initial="initial"
         animate={isScrolled ? "scrolled" : "initial"}
-        // Pass the dynamic variants here
         variants={headerVariants}
         transition={smoothTransition}
         style={{ backdropFilter: "blur(16px)" }}
-        className="pointer-events-auto flex items-center justify-between px-6 max-w-7xl mx-auto overflow-hidden border border-transparent transition-colors duration-500"
+        className="pointer-events-auto flex items-center  justify-between px-6 max-w-7xl mx-auto overflow-hidden  transition-colors duration-500"
       >
         {/* Logo */}
         <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-         {!isDarkMode? <Image
+         {!isDarkMode ? (
+           <Image
             src="/logo.png"
             width={160}
             height={180}
             alt="Fusion Logo"
             className="object-contain "
-            // Optional: Invert logo in dark mode if it's a black text logo
-            // style={{ filter: isDarkMode ? 'invert(1)' : 'none' }}
-          />:
+          />
+         ) : (
           <Image
             src="/logob.png"
             width={160}
             height={180}
             alt="Fusion Logo"
             className="object-contain "
-            // Optional: Invert logo in dark mode if it's a black text logo
-            // style={{ filter: isDarkMode ? 'invert(1)' : 'none' }}
-          />}
+          />
+         )}
         </div>
 
         {/* --- DESKTOP NAV WITH STYLISH HOVER --- */}
@@ -121,7 +119,6 @@ const Header = () => {
               {hoveredTab === link.name && (
                 <motion.span
                   layoutId="nav-hover-pill"
-                  // Light: bg-gray-100 | Dark: bg-white/10
                   className={`absolute inset-0 rounded-full -z-10 ${
                     isDarkMode ? "bg-white/10 text-white" : "bg-gray-100"
                   }`}
@@ -137,7 +134,11 @@ const Header = () => {
                 className={`relative z-10  transition-colors duration-300 ${
                   activeTab === link.name && isDarkMode
                     ? "text-white font-semibold"
-                    :activeTab === link.name && !isDarkMode ? "text-white" :activeTab !== link.name && !isDarkMode ? "text-primary":'text-gray-200' // Light mode inactive text
+                    : activeTab === link.name && !isDarkMode 
+                      ? "text-black font-semibold" // Changed to black for better contrast on white
+                      : activeTab !== link.name && !isDarkMode 
+                        ? "text-gray-600" 
+                        : "text-gray-200"
                 }`}
               >
                 {link.name}
@@ -147,7 +148,7 @@ const Header = () => {
               {activeTab === link.name && (
                 <motion.span
                   layoutId="nav-active-dot"
-                  className="absolute inset-0   size-full bg-primary/70 rounded-full"
+                  className="absolute inset-0 size-full bg-primary/70 rounded-full"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
