@@ -3,7 +3,7 @@ import { MoveRight, Sparkles } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="py-32 px-16 bg-white overflow-hidden relative">
+    <section className="py-32 px-16 bg-white dark:bg-primary-deep   overflow-hidden relative">
       {/* Load Google Font for the Signature */}
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');`}
@@ -82,26 +82,26 @@ const About = () => {
           {/* Tag */}
           <div className="flex items-center gap-2 mb-4">
             <span className="text-primary font-bold italic text-lg">//</span>
-            <span className="text-slate-600 font-semibold tracking-wide uppercase text-sm">
+            <span className="text-slate-600 dark:text-slate-400 font-semibold tracking-wide uppercase text-sm">
               About Us
             </span>
           </div>
 
           {/* Headline */}
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 leading-[1.15]">
-            Transforming <span className="text-primary">Ideas</span> <br />
-            into <span className="text-primary">Digital Reality</span>
+          <h2 className="text-4xl lg:text-5xl font-extrabold dark:text-white text-slate-900 mb-6 leading-[1.15]">
+            Transforming <span className="text-primary dark:text-white">Ideas</span> <br />
+            into <span className="text-primary dark:text-white">Digital Reality</span>
           </h2>
 
           {/* Description */}
-          <p className="text-slate-500 text-lg mb-8 leading-relaxed">
+          <p className="text-slate-500 dark:text-slate-400 text-lg mb-8 leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore. We don't just write
             code; we architect success.
           </p>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-3 gap-8 mb-10 border-y border-slate-100 py-8">
+          <div className="grid grid-cols-3 gap-8 mb-10 border-y dark:border-slate-800 border-slate-100 py-8">
             {[
               { num: "150+", label: "Team Members" },
               { num: "2000+", label: "Happy Clients" },

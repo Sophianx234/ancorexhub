@@ -252,10 +252,10 @@ const Header = () => {
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             // Apply Dark mode bg and borders
-            className={`absolute top-24 w-[90%] rounded-2xl shadow-xl border p-4 pointer-events-auto md:hidden ${
+            className={`absolute top-24 w-[90%] rounded-2xl shadow-xl  p-4 pointer-events-auto md:hidden ${
                 isDarkMode 
-                ? "bg-[#0a0a0a] border-gray-800" 
-                : "bg-white border-gray-100"
+                ? "bg-[#0a0a0a] " 
+                : "bg-white "
             }`}
           >
             <div className="flex flex-col space-y-2">

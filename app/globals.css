@@ -1,20 +1,16 @@
-/* 1. Import all requested Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo+Black&family=Barlow:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Caveat+Brush&family=Concert+One&family=Fredericka+the+Great&family=Inter:wght@100..900&family=Lato:ital,wght@0,100..900;1,100..900&family=Lilita+One&family=Lobster&family=Orbitron:wght@400..900&family=Pacifico&family=Rubik+Mono+One&family=Sacramento&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo+Black&family=Barlow:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Caveat+Brush&family=Concert+One&family=Fredericka+the+Great&family=Inter:wght@100..900&family=Lato:ital,wght@0,100..900;1,100..900&family=Lilita+One&family=Lobster&family=Orbitron:wght@400..900&family=Pacifico&family=Rubik+Mono+One&family=Sacramento&display=swap");
 
 @import "tailwindcss";
 
-/* 2. Define Variables */
 :root {
   /* --- LIGHT MODE DEFAULTS --- */
-  --background: #f0ede5;       /* Cream Background */
-  --foreground: #001514;       /* Deep Teal Text */
-  
-  --primary: #004643;          /* Original Teal */
-  --primary-deep: #001514;     /* Darker Teal */
-  --primary-deep-light: #ffffff; /* Card Background (White in Light Mode) */
-  
-  --secondary: #f0ede5;        /* Cream */
-  --tertiary: #74b4d9;         /* Blue */
+  --background: #f0ede5;
+  --foreground: #001514;
+  --primary: #004643;
+  --primary-deep: #001514;
+  --primary-deep-light: #ffffff;
+  --secondary: #f0ede5;
+  --tertiary: #74b4d9;
 
   /* --- FONT DEFINITIONS --- */
   --font-amatic: "Amatic SC", cursive;
@@ -32,34 +28,30 @@
   --font-pacifico: "Pacifico", cursive;
   --font-rubik: "Rubik Mono One", monospace;
   --font-sacramento: "Sacramento", cursive;
-  --font-tiktok: "TikTok Sans", sans-serif;
 }
 
 /* --- DARK MODE OVERRIDES --- */
-/* When the class "dark" is added to the <html> tag, these values swap */
+/* This redefines the SAME variables when .dark is present */
+
+  /* --- DARK MODE OVERRIDES --- */
 .dark {
-  --background: #001514;       /* Deep Teal Background */
-  --foreground: #f0ede5;       /* Cream Text */
   
-  /* We brighten the primary slightly so it pops on dark backgrounds */
-  --primary: #2D8A86;          
-  
-  --primary-deep: #000a09;     /* Even Darker Teal for contrast */
-  --primary-deep-light: #002322; /* Card Background (Deep Light Teal in Dark Mode) */
-  
-  --secondary: #001514;        /* Secondary becomes dark */
+--background: #f0ede5;
+  --foreground: #001514;
+  --primary: #004643;
+  --primary-deep: #001514;
+  --primary-deep-light: #ffffff;
+  --secondary: #f0ede5;
+  --tertiary: #74b4d9;
 }
 
-/* 3. Map Variables to Tailwind Utilities */
 @theme {
-  /* --- COLORS --- */
+  /* --- MAPPING --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
   --color-primary: var(--primary);
   --color-primary-deep: var(--primary-deep);
   --color-primary-deep-light: var(--primary-deep-light);
-  
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
 
@@ -79,24 +71,13 @@
   --font-pacifico: var(--font-pacifico);
   --font-rubik: var(--font-rubik);
   --font-sacramento: var(--font-sacramento);
-  --font-tiktok: var(--font-tiktok);
   
-  /* Set Default Sans Font */
   --font-sans: var(--font-inter);
-}
+} 
 
-/* Smooth Transition Global Reset */
-html {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body {
-  @apply bg-background text-foreground;
-}
-
-/* Smooth transition for all major elements */
-div, section, p, h1, h2, h3, h4, h5, h6, span, button, input, textarea {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+/* Smooth Transition */
+@layer base {
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 }

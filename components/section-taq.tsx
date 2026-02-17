@@ -9,7 +9,7 @@ const SectionTag = ({
     <span
       className={`font-bold text-sm tracking-widest uppercase ${dark ? "text-tertiary" : "text-primary"}`}
     >
-      <span className="italic"> //</span> {text}
+      <span className="italic"> //</span> <span className="dark:text-slate-400"> {text}</span>
     </span>
   </div>
 );
