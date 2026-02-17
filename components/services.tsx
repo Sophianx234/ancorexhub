@@ -1,22 +1,27 @@
-
 import { ArrowRight, LayoutTemplate, Monitor, Smartphone } from "lucide-react";
 import SectionTag from "./section-taq";
 
 const Services = () => (
-  <section className="py-24 px-14 dark:bg-[#050505] bg-[#F8FAFC] ">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="flex justify-between items-end mb-16">
+  <section className="py-24 px-6 md:px-14 bg-[#F8FAFC] dark:bg-[#050505] transition-colors duration-300">
+    <div className="max-w-7xl mx-auto">
+      {/* Header Section */}
+      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
         <div>
           <SectionTag text="Our Services" />
-          <h2 className="text-4xl dark:text-white font-bold text-slate-900 max-w-lg">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-[#EDEDED] max-w-lg leading-tight mt-4">
             Services We Provide to{" "}
-            <span className="text-primary dark:text-[#1a5956] dark:contrast-more:">Elevate Your Business</span>
+            {/* CHANGED: High contrast Teal (Teal-300) instead of dark teal */}
+            <span className="text-primary dark:text-[#5EEAD4] drop-shadow-sm">
+              Elevate Your Business
+            </span>
           </h2>
         </div>
-        <button className="hidden md:block bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-primary/80 transition">
+        <button className="hidden md:block bg-primary text-white dark:bg-[#004643] dark:text-[#E6FFFA] dark:hover:bg-[#006863] px-6 py-3 rounded-full text-sm font-medium hover:bg-primary/80 transition-all border border-transparent dark:border-[#115E59]">
           View All Services
         </button>
       </div>
+
+      {/* Cards Grid */}
       <div className="grid md:grid-cols-3 gap-8">
         {[
           {
@@ -37,24 +42,37 @@ const Services = () => (
         ].map((service, idx) => (
           <div
             key={idx}
-            className="bg-white dark:bg-primary p-10 rounded-3xl shadow-sm border-b-8 border-b-transparent hover:border-primary transition duration-300 group"
+            // CARD DESIGN:
+            // Light Mode: White card, shadow.
+            // Dark Mode: #0A0A0A (Rich Black) + #262626 (Border). NO bright backgrounds.
+            className="group p-10 rounded-3xl transition duration-300 border-b-8 
+              bg-white border-b-transparent hover:border-primary shadow-sm
+              dark:bg-[#0A0A0A] dark:border dark:border-[#262626] dark:hover:border-[#5EEAD4] dark:hover:shadow-[0_0_30px_-10px_rgba(94,234,212,0.15)]"
           >
-            {/* Icon: Uses group-hover because it reacts to the PARENT being hovered */}
-            <div className="w-16 h-16 bg-blue-50 dark:bg-primary-deep dark:group-hover:bg-primary-deep text-primary rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
+            {/* Icon Box */}
+            <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-colors
+              bg-blue-50 text-primary group-hover:bg-primary group-hover:text-white
+              dark:bg-[#171717] dark:text-[#5EEAD4] dark:group-hover:bg-[#5EEAD4] dark:group-hover:text-[#050505]"
+            >
               {service.icon}
             </div>
 
-            <h3 className="text-2xl font-bold dark:text-primary-deep text-slate-900 mb-4">
+            {/* Title: High Contrast White (#EDEDED) */}
+            <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-[#EDEDED]">
               {service.title}
             </h3>
-            <p className="text-slate-500 dark:text-[#b3c8c7] mb-8 leading-relaxed">
+
+            {/* Description: Readable Grey (#A3A3A3) - Avoids being too dim */}
+            <p className="mb-8 leading-relaxed text-slate-500 dark:text-[#A3A3A3]">
               {service.desc}
             </p>
 
-            {/* Link: Uses group-hover because it reacts to the PARENT being hovered */}
+            {/* Link */}
             <a
               href="#"
-              className="flex items-center gap-2 dark:text-primary-deep dark:group-hover:text-primary-deep text-sm font-bold text-slate-900 group-hover:text-primary transition"
+              className="flex items-center gap-2 text-sm font-bold transition
+                text-slate-900 group-hover:text-primary
+                dark:text-white dark:group-hover:text-[#5EEAD4]"
             >
               Learn more <ArrowRight size={16} />
             </a>
@@ -64,4 +82,5 @@ const Services = () => (
     </div>
   </section>
 );
+
 export default Services;
