@@ -1,5 +1,5 @@
-
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -49,8 +49,9 @@ const TestimonialCard = ({ item }) => (
       "{item.quote}"
     </p>
     <div className="flex items-center gap-4">
-      <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50">
-        <img
+      <div className="w-10 h-10 relative rounded-full overflow-hidden border-2 border-primary/50">
+        <Image
+        fill
           src={item.img}
           alt={item.name}
           className="w-full h-full object-cover"
@@ -81,8 +82,10 @@ const Testimonials = () => {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Testimonials: <span className="text-primary">Trusted <br />{" "}
-            by Our Clients</span> 
+            Testimonials:{" "}
+            <span className="text-primary">
+              Trusted <br /> by Our Clients
+            </span>
           </h2>
         </div>
 
@@ -90,7 +93,6 @@ const Testimonials = () => {
             We render the list TWICE to create the perfect seamless loop.
         */}
         <div className="relative w-full overflow-hidden">
-          
           {/* Gradient Masks (The "Expensive" Look) */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0B0F19] to-transparent z-20 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0B0F19] to-transparent z-20 pointer-events-none" />
@@ -105,8 +107,8 @@ const Testimonials = () => {
             {testimonials.map((item, i) => (
               <TestimonialCard key={`b-${i}`} item={item} />
             ))}
-             {/* Third Set (Optional: Extra buffer for ultra-wide screens) */}
-             {testimonials.map((item, i) => (
+            {/* Third Set (Optional: Extra buffer for ultra-wide screens) */}
+            {testimonials.map((item, i) => (
               <TestimonialCard key={`c-${i}`} item={item} />
             ))}
           </div>
@@ -127,5 +129,5 @@ const Testimonials = () => {
       `}</style>
     </section>
   );
-};  
+};
 export default Testimonials;

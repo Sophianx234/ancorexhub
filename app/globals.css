@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo+Black&family=Barlow:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Caveat+Brush&family=Concert+One&family=Fredericka+the+Great&family=Inter:wght@100..900&family=Lato:ital,wght@0,100..900;1,100..900&family=Lilita+One&family=Lobster&family=Orbitron:wght@400..900&family=Pacifico&family=Rubik+Mono+One&family=Sacramento&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo+Black&family=Barlow:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Caveat+Brush&family=Concert+One&family=Fredericka+the+Great&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&family=Lobster&family=Orbitron:wght@400..900&family=Pacifico&family=Rubik+Mono+One&family=Sacramento&display=swap');
 
 @import "tailwindcss";
 
@@ -16,6 +16,7 @@
 
   /* --- FONT DEFINITIONS --- */
   --font-amatic: "Amatic SC", cursive;
+  --font-vibes: "Great vibes", cursive;
   --font-archivo: "Archivo Black", sans-serif;
   --font-barlow: "Barlow", sans-serif;
   --font-bebas: "Bebas Neue", sans-serif;
@@ -71,6 +72,7 @@
   --font-lobster: var(--font-lobster);
   --font-orbitron: var(--font-orbitron);
   --font-pacifico: var(--font-pacifico);
+  --font-vibes: var(--font-vibes);
   --font-rubik: var(--font-rubik);
   --font-sacramento: var(--font-sacramento);
   
@@ -78,8 +80,3 @@
 } 
 
 /* Smooth Transition */
-@layer base {
-  html {
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-}

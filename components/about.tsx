@@ -1,13 +1,10 @@
-
 import { MoveRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const About = () => {
   return (
     <section className="py-32 px-16 bg-white dark:bg-primary-deep   overflow-hidden relative">
       {/* Load Google Font for the Signature */}
-      <style>
-        {`@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');`}
-      </style>
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         {/* LEFT SIDE: Image Composition */}
@@ -26,8 +23,9 @@ const About = () => {
           {/* Image Grid */}
           <div className="grid grid-cols-2 gap-4">
             {/* Image 1: Team Group (Top Left) */}
-            <div className="h-56 rounded-tl-[60px] rounded-br-2xl border-primary border-l-8 border-t-8 bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
-              <img
+            <div className="h-56 relative rounded-tl-[60px] rounded-br-2xl border-primary border-l-8 border-t-8 bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
+              <Image
+              fill
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
                 alt="Team"
                 className="w-full h-full object-cover"
@@ -35,8 +33,9 @@ const About = () => {
             </div>
 
             {/* Image 2: Standing Man (Top Right) */}
-            <div className="h-64 mt-8 rounded-tr-[40px] rounded-bl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
-              <img
+            <div className="h-64 relative mt-8 rounded-tr-[40px] rounded-bl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
+              <Image
+              fill
                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80"
                 alt="Professional"
                 className="w-full h-full object-cover"
@@ -44,8 +43,9 @@ const About = () => {
             </div>
 
             {/* Image 3: Woman Working (Bottom Left) */}
-            <div className="h-64 -mt-8 rounded-bl-[40px] rounded-tr-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
-              <img
+            <div className="h-64 relative -mt-8 rounded-bl-[40px] rounded-tr-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
+              <Image
+              fill  
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80"
                 alt="Working"
                 className="w-full h-full object-cover"
@@ -53,8 +53,9 @@ const About = () => {
             </div>
 
             {/* Image 4: Couple Working (Bottom Right) */}
-            <div className="h-56 border-black border-r-8 border-b-8 rounded-br-[60px] rounded-tl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
-              <img
+            <div className="h-56 relative border-black border-r-8 border-b-8 rounded-br-[60px] rounded-tl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
+              <Image
+              fill
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80"
                 alt="Meeting"
                 className="w-full h-full object-cover"
@@ -89,8 +90,12 @@ const About = () => {
 
           {/* Headline */}
           <h2 className="text-4xl lg:text-5xl font-extrabold dark:text-white text-slate-900 mb-6 leading-[1.15]">
-            Transforming <span className="text-primary dark:text-white">Ideas</span> <br />
-            into <span className="text-primary dark:text-white">Digital Reality</span>
+            Transforming{" "}
+            <span className="text-primary dark:text-white">Ideas</span> <br />
+            into{" "}
+            <span className="text-primary dark:text-white">
+              Digital Reality
+            </span>
           </h2>
 
           {/* Description */}
@@ -120,10 +125,7 @@ const About = () => {
 
           {/* Signature Block */}
           <div>
-            <div
-              className="text-4xl text-slate-800 mb-2"
-              style={{ fontFamily: '"Great Vibes", cursive' }}
-            >
+            <div className="text-4xl font-vibes text-slate-800 mb-2">
               Jenny Alexander
             </div>
             <div className="text-sm font-bold uppercase text-slate-400 tracking-wider">

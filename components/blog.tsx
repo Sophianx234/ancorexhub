@@ -1,5 +1,6 @@
 import { ArrowRight, Calendar } from "lucide-react";
 import SectionTag from "./section-taq";
+import Image from "next/image";
 
 const Blog = () => (
   <section className="py-24 bg-white dark:bg-[#001514] transition-colors duration-300">
@@ -8,7 +9,8 @@ const Blog = () => (
         <SectionTag text="News & Blogs" />
       </div>
       <h2 className="text-4xl font-bold text-slate-900 dark:text-[#f0ede5]">
-        Our Latest <span className="text-primary dark:text-[#74b4d9]">News & Blogs</span>
+        Our Latest{" "}
+        <span className="text-primary dark:text-[#74b4d9]">News & Blogs</span>
       </h2>
     </div>
 
@@ -40,7 +42,8 @@ const Blog = () => (
             dark:bg-[#002524] dark:border-[#004643] dark:hover:border-[#74b4d9]"
         >
           <div className="h-60 overflow-hidden relative">
-            <img
+            <Image
+            fill
               src={post.img}
               alt={post.title}
               className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
@@ -49,31 +52,33 @@ const Blog = () => (
                 Light: Primary Green BG + White Text.
                 Dark: Tertiary Blue BG + Black Text (Maximum Readability).
             */}
-            <div className="absolute bottom-4 left-4 text-xs font-bold px-3 py-1 rounded-md
+            <div
+              className="absolute bottom-4 left-4 text-xs font-bold px-3 py-1 rounded-md
               bg-primary text-white
               dark:bg-[#74b4d9] dark:text-[#001514]"
             >
               {post.tag}
             </div>
           </div>
-          
+
           <div className="p-8">
             <div className="flex items-center gap-2 text-xs mb-4 text-slate-500 dark:text-[#9ca3af]">
               <Calendar size={14} /> {post.date}
             </div>
-            
-            <h3 className="text-xl font-bold mb-4 leading-snug transition
+
+            <h3
+              className="text-xl font-bold mb-4 leading-snug transition
               text-slate-900 group-hover:text-primary
               dark:text-[#f0ede5] dark:group-hover:text-[#74b4d9]"
             >
               {post.title}
             </h3>
-            
+
             <p className="text-sm mb-6 line-clamp-2 text-slate-500 dark:text-[#9ca3af]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor.
             </p>
-            
+
             <a
               href="#"
               className="text-sm font-bold flex items-center gap-2 transition
