@@ -8,27 +8,27 @@ const teamMembers = [
   {
     name: "Daniel Marcus",
     role: "Lead Dev",
-    img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80",
+    img: "/img-9.webp",
   },
   {
     name: "Sophia Lewis",
     role: "Product",
-    img: "https://images.unsplash.com/photo-1598550874175-4d7112ee7f1e?auto=format&fit=crop&q=80",
+    img: "/img-6.webp",
   },
   {
     name: "Jenny Alexander",
     role: "CEO & Founder",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80",
+    img: "/img-4.webp",
   },
   {
     name: "David Chen",
     role: "Creative",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+    img: "/img-8.webp",
   },
   {
     name: "Olivia Hughes",
     role: "CTO",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80",
+    img: "/img-7.webp",
   },
 ];
 

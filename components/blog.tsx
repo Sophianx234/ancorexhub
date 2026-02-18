@@ -20,19 +20,19 @@ const Blog = () => (
           tag: "Web Development",
           title: "The Future of Web Development: Trends to Watch",
           date: "February 10, 2026",
-          img: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80",
+          img: "/blog-3.webp",
         },
         {
           tag: "Cloud Computing",
           title: "The Role of AI in Cloud Computing and Automation",
           date: "February 09, 2026",
-          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
+          img: "/blog-2.webp",
         },
         {
           tag: "Mobile App",
           title: "The Rise of Super Apps: What It Means for Business",
           date: "February 08, 2026",
-          img: "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?auto=format&fit=crop&q=80",
+          img: "/blog-1.webp",
         },
       ].map((post, i) => (
         <div

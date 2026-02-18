@@ -6,7 +6,7 @@ const StatsBanner = () => (
     className="relative py-20 bg-fixed bg-cover bg-center"
     style={{
       backgroundImage:
-        "url('https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?auto=format&fit=crop&q=80')",
+        "url('/img-10.webp')",
     }}
   >
     <div className="absolute inset-0 bg-[#0B0F19]/80"></div>

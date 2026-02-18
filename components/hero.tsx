@@ -76,7 +76,7 @@ const Hero = () => (
 
       {/* Next.js Image Component */}
       <Image
-        src="/sx-1.jpg"
+        src="/sx-1.webp"
         alt="Hero Background"
         fill
         className="object-cover object-center opacity-80 mix-blend-overlay lg:mix-blend-normal z-10"

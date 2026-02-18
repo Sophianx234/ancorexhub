@@ -26,7 +26,7 @@ const About = () => {
             <div className="h-56 relative rounded-tl-[60px] rounded-br-2xl border-primary border-l-8 border-t-8 bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
               <Image
               fill
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+                src="/img-3.webp"
                 alt="Team"
                 className="w-full h-full object-cover"
               />
@@ -36,7 +36,7 @@ const About = () => {
             <div className="h-64 relative mt-8 rounded-tr-[40px] rounded-bl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
               <Image
               fill
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80"
+                src="/img-2.webp"
                 alt="Professional"
                 className="w-full h-full object-cover"
               />
@@ -46,7 +46,7 @@ const About = () => {
             <div className="h-64 relative -mt-8 rounded-bl-[40px] rounded-tr-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
               <Image
               fill  
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80"
+                src="/img-4.webp"
                 alt="Working"
                 className="w-full h-full object-cover"
               />
@@ -56,7 +56,7 @@ const About = () => {
             <div className="h-56 relative border-black border-r-8 border-b-8 rounded-br-[60px] rounded-tl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
               <Image
               fill
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80"
+                src="/img-1.webp"
                 alt="Meeting"
                 className="w-full h-full object-cover"
               />

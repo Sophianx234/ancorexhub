@@ -52,7 +52,7 @@ const Contact = () => (
         <div className="relative z-10 pt-12">
           <h4 className="text-xl font-semibold mb-6 text-white/90 dark:text-[#f0ede5]">Stay Connected</h4>
           <div className="flex gap-4">
-            {[Facebook, Twitter, Linkedin, Instagram, Youtube].map((Icon, i) => (
+            {[Facebook, Twitter, Linkedin,].map((Icon, i) => (
               <div key={i} className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300
                 bg-primary hover:bg-white hover:text-blue-600
                 dark:bg-[#74b4d9] dark:text-[#001514] dark:hover:bg-[#f0ede5] dark:hover:text-[#004643]">

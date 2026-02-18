@@ -63,7 +63,7 @@ const WhyChooseUs = () => {
             <div className="rounded-[32px]  overflow-hidden h-[400px] border border-white/10 relative shadow-2xl">
               <Image
               fill
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80"
+                src="/img-5.webp"
                 alt="Office Meeting"
                 className="w-full h-full object-cover opacity-80  transition duration-700"
               />
