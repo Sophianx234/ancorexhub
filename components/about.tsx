@@ -143,7 +143,7 @@ const About = () => {
               <div className="text-4xl font-vibes text-slate-800 dark:text-white mb-2">
                 Jenny Alexander
               </div>
-              <div className="text-xs md:text-sm font-bold uppercase text-slate-400 tracking-wider">
+              <div className="text-xs  md:text-sm font-bold uppercase text-slate-400 tracking-wider">
                 Jenny Alexander <span className="text-primary dark:text-tertiary mx-1">•</span> CEO
               </div>
             </div>

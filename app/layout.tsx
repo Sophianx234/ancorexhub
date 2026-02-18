@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-handwriting antialiased`}>
+      <body className={` antialiased`}>
         {/* Wrap children in the Client Provider.
           This enables Smooth Scroll (Lenis) for the whole app 
           without breaking Server Side Rendering.

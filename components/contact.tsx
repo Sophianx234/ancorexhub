@@ -37,7 +37,7 @@ const Contact = () => (
 
           {/* Contact */}
           <div>
-            <h4 className="text-xl font-semibold mb-4 text-white/90 dark:text-[#f0ede5]">Contact</h4>
+            <h4 className="text-xl font-semibold mb-4 text-white/90 dark:text-[#f0ede5] ">Contact</h4>
             <p className="text-slate-400 dark:text-blue-100/70">Phone : +(000) 000-0000</p>
             <p className="text-slate-400 dark:text-blue-100/70">Email : example@gmail.com</p>
           </div>

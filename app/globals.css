@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo+Black&family=Barlow:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Caveat+Brush&family=Concert+One&family=Fredericka+the+Great&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&family=Lobster&family=Orbitron:wght@400..900&family=Pacifico&family=Rubik+Mono+One&family=Sacramento&display=swap');
+/* 1. Standard Sans/Serif Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Orbitron:wght@400..900&family=Rubik+Mono+One&display=swap');
+
+/* 2. Script & Display Fonts (Great Vibes, Parisienne, etc.) */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Caveat+Brush&family=Concert+One&family=Fredericka+the+Great&family=Great+Vibes&family=Lilita+One&family=Lobster&family=Pacifico&family=Parisienne&family=Sacramento&display=swap');
 
 @import "tailwindcss";
 
@@ -16,7 +20,8 @@
 
   /* --- FONT DEFINITIONS --- */
   --font-amatic: "Amatic SC", cursive;
-  --font-vibes: "Great vibes", cursive;
+  --font-vibes: "Great Vibes", cursive;
+  --font-parisienne: "Parisienne", cursive; 
   --font-archivo: "Archivo Black", sans-serif;
   --font-barlow: "Barlow", sans-serif;
   --font-bebas: "Bebas Neue", sans-serif;
@@ -34,12 +39,8 @@
 }
 
 /* --- DARK MODE OVERRIDES --- */
-/* This redefines the SAME variables when .dark is present */
-
-  /* --- DARK MODE OVERRIDES --- */
 .dark {
-  
---background: #f0ede5;
+  --background: #f0ede5;
   --foreground: #001514;
   --primary: #004643;
   --primary-deep: #001514;
@@ -73,33 +74,16 @@
   --font-orbitron: var(--font-orbitron);
   --font-pacifico: var(--font-pacifico);
   --font-vibes: var(--font-vibes);
+  --font-parisienne: var(--font-parisienne);
   --font-rubik: var(--font-rubik);
   --font-sacramento: var(--font-sacramento);
   
   --font-sans: var(--font-inter);
-} 
-
-/* Smooth Transition */
-
-
-/* ... your existing imports ... */
-
-html.lenis, html.lenis body {
-  height: auto;
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
+/* ... existing Lenis scroll styles ... */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
