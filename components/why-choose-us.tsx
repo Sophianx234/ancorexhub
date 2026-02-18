@@ -1,5 +1,7 @@
+'use client'
 import { Briefcase, HandCoins, Play, Trophy, Users } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {
   const features = [
@@ -62,7 +64,7 @@ const WhyChooseUs = () => {
           <div className="relative group">
             <div className="rounded-[32px]  overflow-hidden h-[400px] border border-white/10 relative shadow-2xl">
               <Image
-              fill
+                fill
                 src="/img-5.webp"
                 alt="Office Meeting"
                 className="w-full h-full object-cover opacity-80  transition duration-700"
@@ -71,12 +73,48 @@ const WhyChooseUs = () => {
               <div className="absolute inset-0 bg-slate-900/30"></div>
 
               {/* Play Button */}
+
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 cursor-pointer hover:scale-110 transition duration-300">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center pl-1 shadow-lg">
-                    <Play size={20} className="text-primary fill-primary" />
-                  </div>
-                </div>
+                <motion.button
+                  initial="initial"
+                  whileHover="hover"
+                  className="relative group outline-none"
+                >
+                  {/* 1. THE RIPPLE WAVE (Animates Once) */}
+                  <motion.div
+                    variants={{
+                      initial: { opacity: 0, scale: 0.8 },
+                      hover: {
+                        opacity: [0, 0.5, 0], // Keyframes: Start hidden, flash visible, fade out
+                        scale: 2, // Expands to 2x size
+                        transition: {
+                          duration: 0.8,
+                          ease: "easeOut", // Smooth expansion
+                        },
+                      },
+                    }}
+                    className="absolute inset-0 bg-white/50 rounded-full z-0 pointer-events-none"
+                  />
+
+                  {/* 2. THE MAIN BUTTON (Spring Physics) */}
+                  <motion.div
+                    variants={{
+                      initial: { scale: 1 },
+                      hover: { scale: 1.1 }, // Subtle grow
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400, // Bouncy tension
+                      damping: 17, // Controls the "wobble" (lower = more wobble)
+                    }}
+                    className="relative z-10 w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]"
+                  >
+                    {/* Inner White Circle */}
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center pl-1 shadow-sm text-primary">
+                      <Play size={22} fill="currentColor" />
+                    </div>
+                  </motion.div>
+                </motion.button>
               </div>
             </div>
           </div>
