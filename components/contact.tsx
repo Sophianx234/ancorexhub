@@ -1,21 +1,21 @@
 'use client'
 
-import { ChevronDown, Facebook, Instagram, InstagramIcon, Linkedin, Twitter, Youtube } from "lucide-react";
+import { ChevronDown, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import FadeIn from "@/lib/fade-in";
-import PopIn from "@/lib/pop-in";
+import { motion } from "framer-motion"; // Import motion directly
 
 const Contact = () => (
   <section className="py-24 px-6 bg-[#F8F9FB] dark:bg-[#001514] transition-colors duration-300">
     
-    {/* Main Card Container - Fades Up as one big unit */}
+    {/* Main Card Container */}
     <FadeIn direction="up" className="max-w-7xl mx-auto flex flex-col lg:flex-row shadow-sm rounded-[40px] overflow-hidden bg-white dark:bg-[#002524]">
       
       {/* Left Column: Info Card */}
-      <div className="lg:w-[35%] p-12 relative w-full -hidden flex flex-col justify-between
+      <div className="lg:w-[35%] p-12 relative w-full overflow-hidden flex flex-col justify-between
         bg-[#001514] text-white
         dark:bg-[#004643] dark:text-[#f0ede5]">
         
-        {/* Topographical Wavy Background Pattern */}
+        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10 pointer-events-none select-none">
           <svg width="100%" height="100%" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 100 Q 100 150 200 100 T 400 100" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -49,22 +49,31 @@ const Contact = () => (
           </div>
         </div>
 
-        {/* Social Connectivity - Staggered Pop In */}
-        <div className="relative flex-col justify-center items-center z-20 pt-12">
+        {/* Social Connectivity */}
+        <div className="relative z-20 pt-12">
           <h4 className="text-xl font-semibold mb-6 text-white/90 dark:text-[#f0ede5]">Stay Connected</h4>
-
           
-            
-          <div className="flex px-10  gap-4 relative md:-left-24 -left-10  w-96 ">
-            {[InstagramIcon,Facebook, Twitter, Linkedin,Youtube].map((Icon, i) => (
-              <PopIn key={i} delay={0.2 + (i * 0.1)}>
-                <div className="w-10 h-10 rounded-full  flex items-center justify-center cursor-pointer transition-all duration-300
+          <div className="flex flex-wrap gap-4"> 
+            {[Instagram, Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20, scale: 0.5 }} // Start small and slightly down
+                whileInView={{ opacity: 1, y: 0, scale: 1 }} // Animate to full size and position
+                viewport={{ once: true }} // Only animate once
+                transition={{
+                  duration: 0.5,
+                  delay: 0.2 + (i * 0.1), // Stagger effect
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20
+                }}
+              >
+                <div className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300
                   bg-primary hover:bg-white hover:text-blue-600
                   dark:bg-[#74b4d9] dark:text-[#001514] dark:hover:bg-[#f0ede5] dark:hover:text-[#004643]">
-                  {/* REMOVED fill="currentColor" to fix broken icons like Facebook */}
                   <Icon size={18} />
                 </div>
-              </PopIn>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -83,7 +92,6 @@ const Contact = () => (
         </div>
 
         <form className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-          {/* Name - Delay 0.1 */}
           <FadeIn delay={0.1} direction="up" className="space-y-3">
             <label className="block font-bold text-slate-800 dark:text-[#f0ede5]">Your Name *</label>
             <input 
@@ -95,7 +103,6 @@ const Contact = () => (
             />
           </FadeIn>
 
-          {/* Email - Delay 0.2 */}
           <FadeIn delay={0.2} direction="up" className="space-y-3">
             <label className="block font-bold text-slate-800 dark:text-[#f0ede5]">Email *</label>
             <input 
@@ -107,7 +114,6 @@ const Contact = () => (
             />
           </FadeIn>
 
-          {/* Phone - Delay 0.3 */}
           <FadeIn delay={0.3} direction="up" className="space-y-3">
             <label className="block font-bold text-slate-800 dark:text-[#f0ede5]">Phone *</label>
             <input 
@@ -119,7 +125,6 @@ const Contact = () => (
             />
           </FadeIn>
 
-          {/* Service - Delay 0.4 */}
           <FadeIn delay={0.4} direction="up" className="space-y-3">
             <label className="block font-bold text-slate-800 dark:text-[#f0ede5]">Service *</label>
             <div className="relative">
@@ -134,7 +139,6 @@ const Contact = () => (
             </div>
           </FadeIn>
 
-          {/* Message - Delay 0.5 */}
           <FadeIn delay={0.5} direction="up" className="col-span-1 md:col-span-2 space-y-3">
             <label className="block font-bold text-slate-800 dark:text-[#f0ede5]">Your Message *</label>
             <textarea 
@@ -146,7 +150,6 @@ const Contact = () => (
             ></textarea>
           </FadeIn>
 
-          {/* Submit Button - Delay 0.6 */}
           <FadeIn delay={0.6} direction="up" className="pt-4">
             <button className="px-10 py-4 rounded-full font-bold shadow-lg transition-all duration-300
               bg-primary text-white shadow-[0_10px_20px_rgba(37,99,235,0.3)] hover:bg-primary/80
