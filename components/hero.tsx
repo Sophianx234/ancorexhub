@@ -5,23 +5,37 @@ import { ArrowRight } from "lucide-react";
 import SectionTag from "./section-taq";
 import { motion } from "framer-motion";
 
+// 1. UPDATE: Use the same "Premium" easing as your FadeIn component
+const premiumEase = [0.21, 0.47, 0.32, 0.98];
+
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    transition: { 
+      staggerChildren: 0.15, // Slightly faster stagger for the Hero
+      delayChildren: 0.2 
+    },
   },
 };
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 30, filter: "blur(10px)" }, // Add Blur for consistency
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    filter: "blur(0px)",
+    transition: { 
+      duration: 1.2, // Slower duration = "Heavier" feel
+      ease: premiumEase 
+    } 
+  },
 };
 
 const Hero = () => (
   <section className="bg-[#0B0F19] pt-24 pb-12 lg:pt-28 lg:pb-20 text-white relative w-full min-h-screen flex items-center overflow-hidden">
     
-    {/* Background Blur - Scaled down for mobile */}
+    {/* Background Blur */}
     <div className="absolute top-0 right-0 w-[300px] h-[300px] lg:w-[600px] lg:h-[600px] bg-primary/40 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none z-10" />
 
     {/* Content Container */}
@@ -55,35 +69,35 @@ const Hero = () => (
         </motion.p>
         
         <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 lg:gap-6">
-          <button className="bg-primary hover:bg-primary/80 text-white px-8 py-4 rounded-full font-semibold transition flex items-center gap-2 shadow-lg shadow-primary/20">
+          {/* Added 'active:scale-95' for a satisfying click press */}
+          <button className="bg-primary hover:bg-primary/80 active:scale-95 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20">
             Explore More <ArrowRight size={20} />
           </button>
         </motion.div>
       </motion.div>
 
-      {/* Empty div to maintain grid structure on Desktop */}
+      {/* Empty div for layout */}
       <div className="hidden lg:block"></div>
     </div>
 
     {/* --- IMAGE BACKGROUND --- */}
     <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
+      initial={{ opacity: 0, x: 20, filter: "blur(10px)" }}
+      animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+      transition={{ duration: 1.2, ease: premiumEase }}
       className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0"
     >
-      {/* GRADIENT OVERLAY:
-          Mobile: Vertical gradient (Dark -> Transparent -> Dark) to make text readable over the image.
-          Desktop: Horizontal gradient (Dark -> Transparent) to blend the image into the left side.
+      {/* CLEANER GRADIENT LOGIC:
+         Since the Hero is always dark (#0B0F19), we don't need 'dark:' classes.
+         We just need one robust overlay that handles both Mobile and Desktop.
       */}
       <div className="absolute inset-0 z-20 
-        bg-gradient-to-b block dark:hidden from-[#0B0F19]/90 via-[#0B0F19]/60 to-[#0B0F19]
-        lg:bg-gradient-to-r lg:from-[#0B0F19] lg:via-transparent lg:to-primary/70" 
+        bg-gradient-to-b from-[#0B0F19]/90 via-[#0B0F19]/60 to-[#0B0F19] 
+        lg:bg-gradient-to-r block dark:hidden lg:from-[#0B0F19] lg:via-transparent lg:to-primary/20" 
       />
       <div className="absolute inset-0 dark:block hidden bg-gradient-to-t lg:bg-gradient-to-r from-[#0B0F19] via- to-primary/60 z-20"></div>
 
 
-      {/* The Image */}
       <Image
         src="/sx-1.webp"
         alt="Hero Background"

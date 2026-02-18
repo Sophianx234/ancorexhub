@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-
+import { Providers } from "@/lib/providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,10 +14,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`font-handwriting antialiased`}
-      >
-        {children}
+      <body className={`font-handwriting antialiased`}>
+        {/* Wrap children in the Client Provider.
+          This enables Smooth Scroll (Lenis) for the whole app 
+          without breaking Server Side Rendering.
+        */}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -71,7 +71,7 @@ const Awards = () => {
   };
 
   return (
-    <section className="py-24 bg-secondary/30 dark:bg-[#001514] overflow-hidden transition-colors duration-300">
+    <section className="py-24 bg-[#FFF8F0] dark:bg-[#001514] overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}

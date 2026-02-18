@@ -17,8 +17,6 @@ const Header = () => {
   
   const [colorTheme, setTheme] = useDarkMode();
   
-  // --- FIX IS HERE ---
-  // We check if the current theme is "dark". 
   const isDarkMode = colorTheme === "dark"; 
 
   const [activeTab, setActiveTab] = useState("Home");
@@ -27,15 +25,16 @@ const Header = () => {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious();
     if (latest > 20 && !isScrolled) setIsScrolled(true);
     if (latest <= 20 && isScrolled) setIsScrolled(false);
   });
 
+  // 1. NEW: The "Apple-like" Easing Curve
+  const premiumEase = [0.21, 0.47, 0.32, 0.98];
+
   const smoothTransition = {
-    type: "tween",
-    ease: [0.22, 1, 0.36, 1],
-    duration: 0.5,
+    duration: 0.6,
+    ease: premiumEase, // Applied the premium physics here
   };
 
   const navLinks = [
@@ -45,13 +44,12 @@ const Header = () => {
     { name: "Case Studies", href: "#" },
   ];
 
-  // LOGIC: Define colors dynamically based on isDarkMode
+  // LOGIC: Kept your exact color/style logic
   const headerVariants = {
     initial: {
       width: "100%",
       y: 0,
       borderRadius: 0,
-      // Light: Pure White | Dark: Deep Hex Black
       backgroundColor: isDarkMode ? "rgba(10, 10, 10, 1)" : "rgba(255, 255, 255, 1)",
       borderBottom: isDarkMode ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid #f3f4f6",
       boxShadow: "0 0 0 rgba(0,0,0,0)",
@@ -62,7 +60,6 @@ const Header = () => {
       width: "92%",
       y: 12,
       borderRadius: 9999,
-      // Light: 85% White | Dark: 85% Deep Black
       backgroundColor: isDarkMode ? "rgba(10, 10, 10, 0.85)" : "rgba(255, 255, 255, 0.85)",
       borderBottom: "1px solid rgba(255,255,255,0.2)",
       boxShadow: isDarkMode 
@@ -74,16 +71,16 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed font-barlow z-50 top-0 left-0 right-0  flex justify-center pt-0 pointer-events-none">
+    <div className="fixed font-barlow z-50 top-0 left-0 right-0 flex justify-center pt-0 pointer-events-none">
       <motion.header
         initial="initial"
         animate={isScrolled ? "scrolled" : "initial"}
         variants={headerVariants}
         transition={smoothTransition}
         style={{ backdropFilter: "blur(16px)" }}
-        className="pointer-events-auto flex items-center  justify-between px-6 max-w-7xl mx-auto overflow-hidden  transition-colors duration-500"
+        className="pointer-events-auto flex items-center justify-between px-6 max-w-7xl mx-auto overflow-hidden"
       >
-        {/* Logo */}
+        {/* Logo (Unchanged) */}
         <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
          {!isDarkMode ? (
            <Image
@@ -104,7 +101,7 @@ const Header = () => {
          )}
         </div>
 
-        {/* --- DESKTOP NAV WITH STYLISH HOVER --- */}
+        {/* --- DESKTOP NAV --- */}
         <nav className="hidden md:flex items-center gap-2">
           {navLinks.map((link) => (
             <a
@@ -115,7 +112,7 @@ const Header = () => {
               onMouseLeave={() => setHoveredTab(null)}
               className="relative px-4 py-2 dark:text-white text-sm font-medium transition-colors duration-200"
             >
-              {/* The Sliding Hover Background */}
+              {/* Sliding Hover Background */}
               {hoveredTab === link.name && (
                 <motion.span
                   layoutId="nav-hover-pill"
@@ -125,17 +122,18 @@ const Header = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
+                  // Added Spring for snappier hover
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
 
               {/* Text Style */}
               <span
-                className={`relative z-10  transition-colors duration-300 ${
+                className={`relative z-10 transition-colors duration-300 ${
                   activeTab === link.name && isDarkMode
                     ? "text-white font-semibold"
                     : activeTab === link.name && !isDarkMode 
-                      ? "text-black font-semibold" // Changed to black for better contrast on white
+                      ? "text-black font-semibold"
                       : activeTab !== link.name && !isDarkMode 
                         ? "text-gray-600" 
                         : "text-gray-200"
@@ -144,7 +142,7 @@ const Header = () => {
                 {link.name}
               </span>
 
-              {/* The Active Dot Indicator */}
+              {/* Active Dot Indicator */}
               {activeTab === link.name && (
                 <motion.span
                   layoutId="nav-active-dot"
@@ -156,10 +154,11 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Right Section: Search + Theme + CTA */}
+        {/* Right Section */}
         <div className="hidden md:flex items-center space-x-2">
-          {/* Search Icon Button */}
-          <button 
+          {/* Search Icon - Added Tap Animation */}
+          <motion.button 
+            whileTap={{ scale: 0.9 }}
             className={`p-2 rounded-full transition-all ${
                 isDarkMode 
                 ? "text-gray-400 hover:text-white hover:bg-white/10" 
@@ -167,10 +166,11 @@ const Header = () => {
             }`}
           >
             <Search size={20} />
-          </button>
+          </motion.button>
 
-          {/* Theme Toggle */}
-          <button
+          {/* Theme Toggle - Added Tap Animation */}
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={() => setTheme(colorTheme)}
             className={`p-2 rounded-full transition-all ${
                 isDarkMode 
@@ -202,36 +202,39 @@ const Header = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-          </button>
+          </motion.button>
 
-          {/* "Let's Talk" CTA */}
+          {/* "Let's Talk" CTA - Added Hover Physics */}
           <motion.a
             href="#contact"
             whileHover="hover"
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.95 }} // Satisfying click
             className="ml-2 flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-full text-sm font-medium hover:opacity-90 transition-colors group"
           >
             <span>Let's Talk</span>
             <motion.span
               variants={{
                 hover: { x: 4 }, 
+                initial: { x: 0 }
               }}
-              transition={{ type: "spring", stiffness: 400 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }} // Springy Arrow
             >
               <ArrowRight size={16} />
             </motion.span>
           </motion.a>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle - Added Tap Animation */}
         <div className="md:hidden flex items-center gap-4">
-          <button 
+          <motion.button 
+             whileTap={{ scale: 0.9 }}
              onClick={() => setTheme(colorTheme)}
              className={isDarkMode ? "text-gray-300" : "text-gray-600"}
           >
             {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`p-2 ${
                 isDarkMode 
@@ -240,7 +243,7 @@ const Header = () => {
             }`}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </motion.button>
         </div>
       </motion.header>
 
@@ -251,9 +254,8 @@ const Header = () => {
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            // Apply Dark mode bg and borders
-            className={`absolute top-24 w-[90%] rounded-2xl shadow-xl  p-4 pointer-events-auto md:hidden ${
+            transition={{ duration: 0.3, ease: premiumEase }} // Premium Ease
+            className={`absolute top-24 w-[90%] rounded-2xl shadow-xl p-4 pointer-events-auto md:hidden ${
                 isDarkMode 
                 ? "bg-[#0a0a0a] " 
                 : "bg-white "
@@ -280,10 +282,13 @@ const Header = () => {
               ))}
               <hr className={isDarkMode ? "border-gray-800 my-2" : "border-gray-100 my-2"} />
 
-              <button className="flex items-center justify-between w-full p-3 bg-primary text-white rounded-xl">
+              <motion.button 
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center justify-between w-full p-3 bg-primary text-white rounded-xl"
+              >
                 <span className="font-medium">Let's Talk</span>
                 <ArrowRight size={18} />
-              </button>
+              </motion.button>
             </div>
           </motion.div>
         )}
