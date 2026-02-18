@@ -1,33 +1,41 @@
+'use client'
 
+import PopIn from "@/lib/pop-in";
 
+const StatsBanner = () => {
+  const stats = [
+    { value: "150+", label: "Team Members" },
+    { value: "2000+", label: "Happy Clients" },
+    { value: "99%", label: "Customer Satisfaction" },
+    { value: "18+", label: "Years Experience" },
+  ];
 
-const StatsBanner = () => (
-  <section
-    className="relative py-20 bg-fixed bg-cover bg-center"
-    style={{
-      backgroundImage:
-        "url('/img-10.webp')",
-    }}
-  >
-    <div className="absolute inset-0 bg-[#0B0F19]/80"></div>
-    <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-      <div>
-        <h3 className="text-4xl font-bold mb-2">150+</h3>
-        <p className="text-sm text-slate-300">Team Members</p>
+  return (
+    <section
+      className="relative py-20 bg-fixed bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/img-10.webp')",
+      }}
+    >
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-[#0B0F19]/80"></div>
+
+      {/* Content Grid */}
+      <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        
+        {stats.map((item, index) => (
+          // Apply PopIn with staggered delay (0.1s, 0.25s, 0.4s, etc.)
+          <PopIn key={index} delay={index * 0.15}>
+            <div>
+              <h3 className="text-4xl font-bold mb-2">{item.value}</h3>
+              <p className="text-sm text-slate-300">{item.label}</p>
+            </div>
+          </PopIn>
+        ))}
+
       </div>
-      <div>
-        <h3 className="text-4xl font-bold mb-2">2000+</h3>
-        <p className="text-sm text-slate-300">Happy Clients</p>
-      </div>
-      <div>
-        <h3 className="text-4xl font-bold mb-2">99%</h3>
-        <p className="text-sm text-slate-300">Customer Satisfaction</p>
-      </div>
-      <div>
-        <h3 className="text-4xl font-bold mb-2">18+</h3>
-        <p className="text-sm text-slate-300">Years Experience</p>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
+
 export default StatsBanner;
