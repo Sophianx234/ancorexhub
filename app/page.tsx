@@ -21,8 +21,10 @@ export default function LandingPage() {
     <>
       <Header />
       <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-500 selection:text-white">
-        <Hero />
-        <MarqueeStrip />
+        <div className="flex flex-col h-dvh">
+          <Hero />
+          <MarqueeStrip />
+        </div>
         <About />
         <Services />
         <WorkProcess />

@@ -106,7 +106,8 @@ const Awards = () => {
               <div className="flex gap-4">
                 <button
                   onClick={prevSlide}
-                  className="w-12 h-12 rounded-full border flex items-center justify-center transition-all shadow-sm active:scale-95
+                  className="w-12 h-12 rounded-full border flex items-center justify-center shadow-sm 
+                  transition-[transform,colors] duration-[160ms] ease-out active:scale-[0.97]
                   bg-white border-slate-200 text-slate-600 hover:border-primary/80 hover:text-primary
                   dark:bg-[#002524] dark:border-[#004643] dark:text-[#f0ede5] dark:hover:border-[#74b4d9] dark:hover:text-[#74b4d9]"
                 >
@@ -115,7 +116,8 @@ const Awards = () => {
                 
                 <button
                   onClick={nextSlide}
-                  className="w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md active:scale-95
+                  className="w-12 h-12 rounded-full flex items-center justify-center shadow-md 
+                  transition-[transform,colors] duration-[160ms] ease-out active:scale-[0.97]
                   bg-primary text-white hover:bg-primary/80 shadow-blue-200
                   dark:bg-[#74b4d9] dark:text-[#001514] dark:shadow-none dark:hover:bg-[#5da0c9]"
                 >

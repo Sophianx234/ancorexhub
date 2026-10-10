@@ -8,30 +8,21 @@ import { useState } from "react";
 
 const teamMembers = [
   {
-    name: "Daniel Marcus",
-    role: "Lead Dev",
-    img: "/img-9.webp",
+    name: "Sophian A. Rahman",
+    role: "Lead Software Engineer",
+    img: "/prof-3.jpg",
   },
   {
-    name: "Sophia Lewis",
-    role: "Product",
-    img: "/img-6.webp",
+    name: "Abdallah M. Muntaqah",
+    role: "Lead Business Strategist",
+    img: "/prof-1.jpg",
   },
   {
-    name: "Jenny Alexander",
-    role: "CEO & Founder",
-    img: "/img-4.webp",
+    name: "Yaqeen Wunzalgu",
+    role: "Lead Product Designer",
+    img: "/prof-2.jpg",
   },
-  {
-    name: "David Chen",
-    role: "Creative",
-    img: "/img-8.webp",
-  },
-  {
-    name: "Olivia Hughes",
-    role: "CTO",
-    img: "/img-7.webp",
-  },
+ 
 ];
 
 const getMod = (n, m) => ((n % m) + m) % m;
@@ -127,7 +118,7 @@ const Team = () => {
                     <div
                       className={`absolute bottom-0 left-0 right-0 p-6 text-center text-white transition-all duration-500 transform ${isActive ? "translate-y-0" : "translate-y-4"}`}
                     >
-                      <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
+                      <h3 className="text-[1.4rem] leading-6 font-bold mb-1">{member.name}</h3>
                       <p className="text-white/70 text-sm font-medium uppercase tracking-widest mb-6">
                         {member.role}
                       </p>

@@ -60,7 +60,7 @@ const WhyChooseUs = () => {
 
           {/* Call to Action Button - Slides in from right/up */}
           <FadeIn direction="left" delay={0.3}>
-             <button className="bg-primary hover:bg-primary/80 text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg flex items-center gap-2 group">
+             <button className="bg-primary hover:bg-primary/80 text-white px-8 py-4 rounded-full font-semibold transition-[transform,colors] duration-[160ms] ease-out active:scale-[0.97] shadow-lg flex items-center gap-2 group">
                Get A Quote
              </button>
           </FadeIn>

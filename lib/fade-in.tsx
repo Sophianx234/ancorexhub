@@ -34,18 +34,20 @@ export default function FadeIn({
       initial={{ 
         opacity: 0, 
         ...directions[direction],
-        filter: "blur(10px)" // The "Premium" Blur Effect
+        filter: "blur(10px)", // The "Premium" Blur Effect
+        scale: 0.95           // Never animate from 0 or just position, slight scale adds depth
       }}
       animate={isInView ? { 
         opacity: 1, 
         y: 0, 
         x: 0,
-        filter: "blur(0px)"
+        filter: "blur(0px)",
+        scale: 1
       } : {}}
       transition={{
-        duration: 0.8,
+        duration: 0.7, // Slightly faster for snappier feeling
         delay: delay,
-        ease: [0.21, 0.47, 0.32, 0.98] // Custom "Apple-like" easing curve
+        ease: [0.23, 1, 0.32, 1] // Strong ease-out from Emil's design engineering rules
       }}
       className={`${fullWidth ? 'w-full' : ''} ${className}`}
     >

@@ -57,12 +57,12 @@ const Portfolio = () => (
               className={`h-[400px] w-full ${project.color} relative flex items-center justify-center`}
             >
               {/* Glassmorphism Card Effect */}
-              <div className="w-3/4 h-3/4 bg-white/20 backdrop-blur-md rounded-xl border border-white/30 shadow-2xl transform group-hover:scale-105 transition duration-500"></div>
+              <div className="w-3/4 h-3/4 bg-white/20 backdrop-blur-md rounded-xl border border-white/30 shadow-2xl transform group-hover:scale-105 transition-transform duration-[400ms] ease-out"></div>
               
               <div className="absolute bottom-6 right-6">
                 {/* Floating Action Button */}
-                <div className="p-4 rounded-full shadow-lg transition duration-300
-                  bg-white text-primary hover:bg-primary hover:text-white
+                <div className="p-4 rounded-full shadow-lg transition-[colors,transform] duration-[200ms] ease-out
+                  bg-white text-primary hover:bg-primary hover:text-white hover:scale-105 active:scale-[0.95]
                   dark:bg-[#001514] dark:text-[#74b4d9] dark:hover:bg-[#74b4d9] dark:hover:text-[#001514]"
                 >
                   <ArrowUpRight size={24} />
@@ -92,7 +92,7 @@ const Portfolio = () => (
     {/* Button - Fade Up */}
     <div className="flex justify-center">
       <FadeIn direction="up" delay={0.4}>
-        <button className="px-10 py-4 rounded-full font-bold shadow-lg transition-all
+        <button className="px-10 py-4 rounded-full font-bold shadow-lg transition-[transform,colors] duration-[160ms] ease-out active:scale-[0.97]
           bg-primary text-white shadow-blue-500/30 hover:bg-blue-700
           dark:bg-[#74b4d9] dark:text-[#001514] dark:shadow-none dark:hover:bg-[#5da0c9]"
         >

@@ -15,7 +15,7 @@ const MARQUEE_ITEMS = [
 const MarqueeStrip = () => {
   return (
     // Added 'group' class to enable hover pausing later if needed
-    <div className="bg-primary text-white py-6 overflow-hidden relative z-20 border-y border-primary/50 group">
+    <div className="bg-primary text-white py-3 overflow-hidden relative z-20 border-y border-primary/50 group">
       {/* Gradient Fades */}
       <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-primary to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-primary to-transparent z-10 pointer-events-none" />
@@ -24,7 +24,7 @@ const MarqueeStrip = () => {
         {[...Array(2)].map((_, i) => (
           <motion.div
             key={i}
-            className="flex gap-16 whitespace-nowrap font-semibold text-lg tracking-wide items-center pr-16"
+            className="flex gap-10 whitespace-nowrap font-semibold text-sm md:text-base tracking-wide items-center pr-10"
             initial={{ x: 0 }}
             animate={{ x: "-100%" }}
             transition={{

@@ -133,7 +133,7 @@ const Header = () => {
                   activeTab === link.name && isDarkMode
                     ? "text-white font-semibold"
                     : activeTab === link.name && !isDarkMode 
-                      ? "text-black font-semibold"
+                      ? "text-white font-semibold"
                       : activeTab !== link.name && !isDarkMode 
                         ? "text-gray-600" 
                         : "text-gray-200"
