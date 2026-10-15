@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
       icon: <Users size={32} strokeWidth={1.5} />,
     },
     {
-      title: "18+ Years Experience",
+      title: "5+ Years Experience",
       desc: "Extensive combined industry background building robust web and mobile architectures.",
       icon: <Briefcase size={32} strokeWidth={1.5} />,
     },

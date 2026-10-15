@@ -1,6 +1,7 @@
 'use client'
 
 import FadeIn from "@/lib/fade-in";
+import StatCounter from "@/lib/stat-counter";
 import { MoveRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 
@@ -119,13 +120,13 @@ const About = () => {
           <FadeIn direction="up" delay={0.6} fullWidth>
             <div className="grid grid-cols-3 gap-4 md:gap-8 mb-10 border-y dark:border-white/10 border-slate-100 py-8">
               {[
-                { num: "100%", label: "On-Time Delivery" },
-                { num: "3+", label: "Core Team" },
-                { num: "99%", label: "Client Satisfaction" },
+                { target: 100, suffix: "%", label: "On-Time Delivery", duration: 2.0 },
+                { target: 3, suffix: "+", label: "Core Team", duration: 1.6 },
+                { target: 99, suffix: "%", label: "Client Satisfaction", duration: 2.0 },
               ].map((stat, i) => (
                 <div key={i} className="text-center lg:text-left">
                   <div className="text-2xl md:text-3xl font-extrabold text-primary dark:text-tertiary mb-1">
-                    {stat.num}
+                    <StatCounter target={stat.target} suffix={stat.suffix} duration={stat.duration} />
                   </div>
                   <div className="text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400">
                     {stat.label}
