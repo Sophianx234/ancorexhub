@@ -43,7 +43,7 @@ const Team = () => {
   };
 
   return (
-    <section className="py-24 bg-[#FFF8F0] dark:bg-[#001514] min-h-screen flex flex-col items-center justify-center overflow-hidden transition-colors duration-300">
+    <section id="team" className="py-24 bg-[#FFF8F0] dark:bg-[#001514] min-h-screen flex flex-col items-center justify-center overflow-hidden transition-colors duration-300">
       
       {/* Header Section - Standard Fade Up */}
       <div className="text-center mb-16 relative z-20 px-6">

@@ -68,7 +68,7 @@ const TestimonialCard = ({ item }) => (
 
 const Testimonials = () => {
   return (
-    <section className="py-24 bg-primary-deep text-white overflow-hidden relative">
+    <section id="testimonials" className="py-24 bg-primary-deep text-white overflow-hidden relative">
       
       {/* Background Watermark - Standard Fade */}
       <FadeIn delay={0.2} className="absolute top-10 left-1/2 -translate-x-1/2 w-full flex justify-center pointer-events-none select-none">

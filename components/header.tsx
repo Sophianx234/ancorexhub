@@ -39,9 +39,9 @@ const Header = () => {
 
   const navLinks = [
     { name: "Home", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Services", href: "#" },
-    { name: "Case Studies", href: "#" },
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Case Studies", href: "#portfolio" },
   ];
 
   // LOGIC: Kept your exact color/style logic
@@ -266,7 +266,10 @@ const Header = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setActiveTab(link.name)}
+                  onClick={() => {
+                    setActiveTab(link.name);
+                    setIsMobileMenuOpen(false);
+                  }}
                   className={`text-lg font-medium p-3 rounded-xl transition-colors ${
                     activeTab === link.name
                       ? isDarkMode 
@@ -282,13 +285,15 @@ const Header = () => {
               ))}
               <hr className={isDarkMode ? "border-gray-800 my-2" : "border-gray-100 my-2"} />
 
-              <motion.button 
+              <motion.a 
+                href="#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center justify-between w-full p-3 bg-primary text-white rounded-xl"
               >
                 <span className="font-medium">Let's Talk</span>
                 <ArrowRight size={18} />
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
         )}

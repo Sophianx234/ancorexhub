@@ -6,7 +6,7 @@ import Image from "next/image";
 import FadeIn from "@/lib/fade-in"; // Using your lib path
 
 const Blog = () => (
-  <section className="py-24 bg-white dark:bg-[#001514] transition-colors duration-300">
+  <section id="blog" className="py-24 bg-white dark:bg-[#001514] transition-colors duration-300">
     
     {/* Header - Standard Fade Up */}
     <div className="max-w-7xl mx-auto px-6 text-center mb-16">

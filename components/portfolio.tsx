@@ -6,7 +6,7 @@ import FadeIn from "@/lib/fade-in";
 import PerspectiveIn from "@/lib/perspective-in";
 
 const Portfolio = () => (
-  <section className="py-24 bg-[#F8FAFC] dark:bg-[#001514] transition-colors duration-300">
+  <section id="portfolio" className="py-24 bg-[#F8FAFC] dark:bg-[#001514] transition-colors duration-300">
     
     {/* Header Section - Standard Fade Up */}
     <div className="max-w-7xl mx-auto px-6 text-center mb-16">

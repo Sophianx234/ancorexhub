@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <section className="py-20 lg:py-32 px-6 md:px-16 bg-white dark:bg-primary-deep overflow-hidden relative transition-colors duration-300">
+    <section id="about" className="py-20 lg:py-32 px-6 md:px-16 bg-white dark:bg-primary-deep overflow-hidden relative transition-colors duration-300">
       
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
