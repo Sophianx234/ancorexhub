@@ -1,6 +1,6 @@
 'use client'
 
-import { ClipboardList, Layers, Lightbulb, Smile } from "lucide-react";
+import { Code2, Compass, MessageSquareText, Rocket } from "lucide-react";
 import SectionTag from "./section-taq";
 import FadeIn from "@/lib/fade-in";
 import PopIn from "@/lib/pop-in";
@@ -10,26 +10,26 @@ const WorkProcess = () => {
     {
       id: "01",
       title: "Consultation",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      icon: <ClipboardList size={32} />,
+      desc: "Understanding your business challenges and defining the right technology stack.",
+      icon: <MessageSquareText size={32} />,
     },
     {
       id: "02",
-      title: "Strategy",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      icon: <Lightbulb size={32} />,
+      title: "System Blueprint",
+      desc: "Planning user flows, interface prototypes, and robust database architecture.",
+      icon: <Compass size={32} />,
     },
     {
       id: "03",
-      title: "Implementation",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      icon: <Layers size={32} />,
+      title: "Engineering & QA",
+      desc: "Building high-performance software with rigorous cross-device testing.",
+      icon: <Code2 size={32} />,
     },
     {
       id: "04",
-      title: "Final Result",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      icon: <Smile size={32} />,
+      title: "Delivery & Handover",
+      desc: "Seamless production launch, full documentation, and post-launch support.",
+      icon: <Rocket size={32} />,
     },
   ];
 
@@ -96,7 +96,7 @@ const WorkProcess = () => {
                   <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-[#f0ede5]">
                     {item.title}
                   </h3>
-                  <p className="text-sm max-w-[220px] leading-relaxed text-slate-400 dark:text-[#9ca3af]">
+                  <p className="text-sm max-w-[260px] leading-relaxed text-slate-500 dark:text-[#9ca3af]">
                     {item.desc}
                   </p>
                 </div>

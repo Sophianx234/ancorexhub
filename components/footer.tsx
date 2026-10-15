@@ -31,8 +31,7 @@ const Footer = () => (
                       />
                   </div>
         <p className="text-slate-400 font-concert text-sm leading-relaxed mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Empowering startups and businesses with modern web engineering, scalable mobile applications, and strategic technology consulting.
         </p>
                       </div>
         <div className="flex gap-4">

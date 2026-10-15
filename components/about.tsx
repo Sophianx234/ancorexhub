@@ -27,40 +27,40 @@ const About = () => {
             {/* Image Grid */}
             <div className="grid grid-cols-2 gap-3 md:gap-4">
               {/* Image 1 */}
-              <div className="h-40 md:h-56 relative rounded-tl-[40px] md:rounded-tl-[60px] rounded-br-2xl border-primary border-l-4 md:border-l-8 border-t-4 md:border-t-8 bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
+              <div className="h-40 md:h-56 relative rounded-tl-[40px] md:rounded-tl-[60px] rounded-br-2xl border-primary border-l-4 md:border-l-8 border-t-4 md:border-t-8 bg-slate-200 overflow-hidden shadow-lg transform transition ">
                 <Image
                   fill
-                  src="/img-3.webp"
+                  src="/i-2.jpg"
                   alt="Team"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Image 2 */}
-              <div className="h-48 md:h-64 relative mt-6 md:mt-8 rounded-tr-[30px] md:rounded-tr-[40px] rounded-bl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
+              <div className="h-48 md:h-64 relative mt-6 md:mt-8 rounded-tr-[30px] md:rounded-tr-[40px] rounded-bl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition ">
                 <Image
                   fill
-                  src="/img-2.webp"
+                  src="/i-4.jpg"
                   alt="Professional"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Image 3 */}
-              <div className="h-48 md:h-64 relative -mt-6 md:-mt-8 rounded-bl-[30px] md:rounded-bl-[40px] rounded-tr-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
+              <div className="h-48 md:h-64 relative -mt-6 md:-mt-8 rounded-bl-[30px] md:rounded-bl-[40px] rounded-tr-2xl bg-slate-200 overflow-hidden shadow-lg transform transition ">
                 <Image
                   fill
-                  src="/img-4.webp"
+                  src="/i-3.jpg"
                   alt="Working"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Image 4 */}
-              <div className="h-40 md:h-56 relative border-black dark:border-white border-r-4 md:border-r-8 border-b-4 md:border-b-8 rounded-br-[40px] md:rounded-br-[60px] rounded-tl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition hover:scale-[1.02]">
+              <div className="h-40 md:h-56 relative border-black dark:border-white border-r-4 md:border-r-8 border-b-4 md:border-b-8 rounded-br-[40px] md:rounded-br-[60px] rounded-tl-2xl bg-slate-200 overflow-hidden shadow-lg transform transition ">
                 <Image
                   fill
-                  src="/img-1.webp"
+                  src="/i-5.jpg"
                   alt="Meeting"
                   className="w-full h-full object-cover"
                 />
@@ -111,9 +111,7 @@ const About = () => {
           {/* Description */}
           <FadeIn direction="up" delay={0.5}>
             <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg mb-8 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore. We don't just write
-              code; we architect success.
+              At ancorexhub, we engineer high-performance websites, scalable web &amp; mobile applications, and strategic digital solutions. Built as an agile team of dedicated technologists, we work directly with founders and businesses to turn complex concepts into intuitive, production-ready software, delivering craft, clarity, and reliable results.
             </p>
           </FadeIn>
 
@@ -121,9 +119,9 @@ const About = () => {
           <FadeIn direction="up" delay={0.6} fullWidth>
             <div className="grid grid-cols-3 gap-4 md:gap-8 mb-10 border-y dark:border-white/10 border-slate-100 py-8">
               {[
-                { num: "150+", label: "Team Members" },
-                { num: "2000+", label: "Happy Clients" },
-                { num: "99%", label: "Satisfaction" },
+                { num: "100%", label: "On-Time Delivery" },
+                { num: "3+", label: "Core Team" },
+                { num: "99%", label: "Client Satisfaction" },
               ].map((stat, i) => (
                 <div key={i} className="text-center lg:text-left">
                   <div className="text-2xl md:text-3xl font-extrabold text-primary dark:text-tertiary mb-1">
@@ -140,11 +138,15 @@ const About = () => {
           {/* Signature Block */}
           <FadeIn direction="up" delay={0.7}>
             <div>
-              <div className="text-4xl font-vibes text-slate-800 dark:text-white mb-2">
-                Jenny Alexander
+              <div className="text-2xl sm:text-xl font-vibes text-slate-800 dark:text-white mb-2 flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1">
+                <span>Sophian A. Rahman</span>
+                <span className="text-xs font-sans text-primary dark:text-tertiary">•</span>
+                <span>Abdallah M. Muntaqah</span>
+                <span className="text-xs font-sans text-primary dark:text-tertiary">•</span>
+                <span>Yaqeen Wunzalgu</span>
               </div>
-              <div className="text-xs  md:text-sm font-bold uppercase text-slate-400 tracking-wider">
-                Jenny Alexander <span className="text-primary dark:text-tertiary mx-1">•</span> CEO
+              <div className="text-xs md:text-sm font-bold uppercase text-slate-400 tracking-wider">
+                Co-Founders <span className="text-primary dark:text-tertiary mx-1">•</span> ancorexhub
               </div>
             </div>
           </FadeIn>

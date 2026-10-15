@@ -10,22 +10,22 @@ const WhyChooseUs = () => {
   const features = [
     {
       title: "Affordable Price",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      desc: "Competitive, transparent pricing tailored to your goals with zero hidden costs.",
       icon: <HandCoins size={32} strokeWidth={1.5} />,
     },
     {
       title: "Professional Team",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      desc: "Direct access to our dedicated core engineers with deep expertise in modern tech.",
       icon: <Users size={32} strokeWidth={1.5} />,
     },
     {
       title: "18+ Years Experience",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      desc: "Extensive combined industry background building robust web and mobile architectures.",
       icon: <Briefcase size={32} strokeWidth={1.5} />,
     },
     {
       title: "Award Winning",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      desc: "Committed to delivering high quality software with exceptional craft and attention to detail.",
       icon: <Trophy size={32} strokeWidth={1.5} />,
     },
   ];

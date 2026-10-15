@@ -27,18 +27,21 @@ const Blog = () => (
         {
           tag: "Web Development",
           title: "The Future of Web Development: Trends to Watch",
+          desc: "How modern frameworks, edge rendering, and headless architectures are creating lightning fast user experiences.",
           date: "February 10, 2026",
           img: "/blog-3.webp",
         },
         {
           tag: "Cloud Computing",
           title: "The Role of AI in Cloud Computing and Automation",
+          desc: "Exploring how automated pipelines and cloud optimizations help startups scale reliably without runaway infrastructure costs.",
           date: "February 09, 2026",
           img: "/blog-2.webp",
         },
         {
           tag: "Mobile App",
           title: "The Rise of Super Apps: What It Means for Business",
+          desc: "Why businesses are adopting integrated digital ecosystems to boost customer retention and engagement.",
           date: "February 08, 2026",
           img: "/blog-1.webp",
         },
@@ -82,8 +85,7 @@ const Blog = () => (
               </h3>
 
               <p className="text-sm mb-6 line-clamp-2 text-slate-500 dark:text-[#9ca3af] flex-grow">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor.
+                {post.desc}
               </p>
 
               <a

@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "What industries do you serve?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    answer: "We partner with startups, growing businesses, and established organizations across diverse domains, including e-commerce, healthcare, finance, education, and SaaS. Our solutions are custom engineered to adapt to your specific operational needs."
   },
   {
     question: "Do you offer customized IT solutions?",
