@@ -70,10 +70,12 @@ const Hero = () => (
         </motion.p>
         
         <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 lg:gap-6">
-          {/* Apply Emil's recommended press feedback: scale-97 and 160ms ease-out */}
-          <button className="bg-primary hover:bg-primary/80 active:scale-[0.97] text-white px-6 py-3 rounded-full text-sm font-semibold transition-[transform,background-color,box-shadow] duration-[160ms] ease-out flex items-center gap-2 shadow-lg shadow-primary/20">
-            Explore More <ArrowRight size={18} />
-          </button>
+          <a 
+            href="#services" 
+            className="bg-primary hover:bg-primary/80 active:scale-[0.97] text-white px-6 py-3 rounded-full text-sm font-semibold transition-[transform,background-color,box-shadow] duration-[160ms] ease-out flex items-center gap-2 shadow-lg shadow-primary/20"
+          >
+            Explore Services <ArrowRight size={18} />
+          </a>
         </motion.div>
       </motion.div>
 
@@ -98,12 +100,11 @@ const Hero = () => (
       />
       <div className="absolute inset-0 dark:block hidden bg-gradient-to-t lg:bg-gradient-to-r from-[#0B0F19] via- to-primary/60 z-20"></div>
 
-
       <Image
         src="/sx-1.webp"
-        alt="Hero Background"
+        alt="AncoreXHub software engineering and digital products showcase"
         fill
-        className="object-cover object-center z-10   "
+        className="object-cover object-center z-10"
         priority 
       />
     </motion.div>

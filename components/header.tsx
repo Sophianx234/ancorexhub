@@ -87,7 +87,7 @@ const Header = () => {
             src="/logo.png"
             width={160}
             height={180}
-            alt="Fusion Logo"
+            alt="AncoreXHub Logo"
             className="object-contain "
           />
          ) : (
@@ -95,7 +95,7 @@ const Header = () => {
             src="/logob.png"
             width={160}
             height={180}
-            alt="Fusion Logo"
+            alt="AncoreXHub Logo"
             className="object-contain "
           />
          )}

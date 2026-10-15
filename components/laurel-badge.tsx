@@ -11,7 +11,7 @@ const LaurelBadge = ({ title, year }: { title: string; year: string }) => (
       src="/l-2.jpg"
       fill
       className="translate-y-4 object-contain opacity-90"
-      alt="Laurel Wreath"
+      alt={`${title} Award ${year} recognition`}
     />
     <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pt-4 px-2">
       <div className="flex gap-0.5 mb-1 text-yellow-500">

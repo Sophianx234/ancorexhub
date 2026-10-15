@@ -60,9 +60,12 @@ const WhyChooseUs = () => {
 
           {/* Call to Action Button - Slides in from right/up */}
           <FadeIn direction="left" delay={0.3}>
-             <button className="bg-primary hover:bg-primary/80 text-white px-8 py-4 rounded-full font-semibold transition-[transform,colors] duration-[160ms] ease-out active:scale-[0.97] shadow-lg flex items-center gap-2 group">
+             <a 
+               href="#contact"
+               className="bg-primary hover:bg-primary/80 text-white px-8 py-4 rounded-full font-semibold transition-[transform,colors] duration-[160ms] ease-out active:scale-[0.97] shadow-lg flex items-center gap-2 group"
+             >
                Get A Quote
-             </button>
+             </a>
           </FadeIn>
         </div>
 
@@ -76,7 +79,7 @@ const WhyChooseUs = () => {
                 <Image
                   fill
                   src="/img-5.webp"
-                  alt="Office Meeting"
+                  alt="AncoreXHub software engineers in a sprint review and architecture session"
                   className="w-full h-full object-cover opacity-80 transition duration-700"
                 />
                 {/* Dark Overlay */}

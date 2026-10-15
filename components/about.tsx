@@ -32,7 +32,7 @@ const About = () => {
                 <Image
                   fill
                   src="/i-2.jpg"
-                  alt="Team"
+                  alt="AncoreXHub core engineering team collaborating"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -42,7 +42,7 @@ const About = () => {
                 <Image
                   fill
                   src="/i-4.jpg"
-                  alt="Professional"
+                  alt="Software engineer designing robust system architecture"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -52,7 +52,7 @@ const About = () => {
                 <Image
                   fill
                   src="/i-3.jpg"
-                  alt="Working"
+                  alt="Full-stack web application development in progress"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -62,7 +62,7 @@ const About = () => {
                 <Image
                   fill
                   src="/i-5.jpg"
-                  alt="Meeting"
+                  alt="Product strategy and sprint planning meeting"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -70,7 +70,11 @@ const About = () => {
 
             {/* "Hire Us" Badge (Center) */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-              <div className="relative w-24 h-24 md:w-28 md:h-28 bg-primary rounded-full flex items-center justify-center border-4 border-white dark:border-slate-800 shadow-2xl group cursor-pointer hover:bg-blue-700 transition">
+              <a 
+                href="#contact"
+                aria-label="Contact AncoreXHub to hire our engineering team"
+                className="relative w-24 h-24 md:w-28 md:h-28 bg-primary rounded-full flex items-center justify-center border-4 border-white dark:border-slate-800 shadow-2xl group cursor-pointer hover:bg-blue-700 transition"
+              >
                 {/* Dashed ring effect */}
                 <div className="absolute inset-1 border border-dashed border-primary/50 dark:border-white/30 rounded-full animate-[spin_10s_linear_infinite]" />
                 <div className="text-center text-white">
@@ -79,7 +83,7 @@ const About = () => {
                   </p>
                   <MoveRight className="w-5 h-5 mx-auto group-hover:translate-x-1 transition" />
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </FadeIn>
